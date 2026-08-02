@@ -1,0 +1,86 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\fer_f\\Desktop\\hillarious purpose\\SEOStore\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F84FF1A3-ADF8-4F54-9654-25444D0677EF}|src\\SEOStore.Web\\SEOStore.Web.csproj|c:\\users\\fer_f\\desktop\\hillarious purpose\\seostore\\src\\seostore.web\\seostore.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F84FF1A3-ADF8-4F54-9654-25444D0677EF}|src\\SEOStore.Web\\SEOStore.Web.csproj|solutionrelative:src\\seostore.web\\seostore.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B818D4C-EB56-42F1-8E1D-38C6AED97B06}|src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj|c:\\users\\fer_f\\desktop\\hillarious purpose\\seostore\\src\\seostore.infrastructure\\identity\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B818D4C-EB56-42F1-8E1D-38C6AED97B06}|src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj|solutionrelative:src\\seostore.infrastructure\\identity\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B818D4C-EB56-42F1-8E1D-38C6AED97B06}|src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj|c:\\users\\fer_f\\desktop\\hillarious purpose\\seostore\\src\\seostore.infrastructure\\seostore.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8B818D4C-EB56-42F1-8E1D-38C6AED97B06}|src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj|solutionrelative:src\\seostore.infrastructure\\seostore.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B818D4C-EB56-42F1-8E1D-38C6AED97B06}|src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj|c:\\users\\fer_f\\desktop\\hillarious purpose\\seostore\\src\\seostore.infrastructure\\identity\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B818D4C-EB56-42F1-8E1D-38C6AED97B06}|src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj|solutionrelative:src\\seostore.infrastructure\\identity\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SEOStore.Web.csproj",
+              "DocumentMoniker": "C:\\Users\\fer_f\\Desktop\\hillarious purpose\\SEOStore\\src\\SEOStore.Web\\SEOStore.Web.csproj",
+              "RelativeDocumentMoniker": "src\\SEOStore.Web\\SEOStore.Web.csproj",
+              "ToolTip": "C:\\Users\\fer_f\\Desktop\\hillarious purpose\\SEOStore\\src\\SEOStore.Web\\SEOStore.Web.csproj",
+              "RelativeToolTip": "src\\SEOStore.Web\\SEOStore.Web.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-08-01T04:08:07.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SEOStore.Infrastructure.csproj",
+              "DocumentMoniker": "C:\\Users\\fer_f\\Desktop\\hillarious purpose\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj",
+              "ToolTip": "C:\\Users\\fer_f\\Desktop\\hillarious purpose\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj",
+              "RelativeToolTip": "src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-08-01T04:06:13.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Address.cs",
+              "DocumentMoniker": "C:\\Users\\fer_f\\Desktop\\hillarious purpose\\SEOStore\\src\\SEOStore.Infrastructure\\Identity\\Address.cs",
+              "RelativeDocumentMoniker": "src\\SEOStore.Infrastructure\\Identity\\Address.cs",
+              "ToolTip": "C:\\Users\\fer_f\\Desktop\\hillarious purpose\\SEOStore\\src\\SEOStore.Infrastructure\\Identity\\Address.cs",
+              "RelativeToolTip": "src\\SEOStore.Infrastructure\\Identity\\Address.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-01T04:02:10.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\fer_f\\Desktop\\hillarious purpose\\SEOStore\\src\\SEOStore.Infrastructure\\Identity\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "src\\SEOStore.Infrastructure\\Identity\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\fer_f\\Desktop\\hillarious purpose\\SEOStore\\src\\SEOStore.Infrastructure\\Identity\\ApplicationUser.cs",
+              "RelativeToolTip": "src\\SEOStore.Infrastructure\\Identity\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-01T04:01:55.217Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,385 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Web\\SEOStore.Web.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj",
+        "projectName": "SEOStore.Application",
+        "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj",
+        "packagesPath": "C:\\Users\\fer_f\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\fer_f\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.316/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj",
+        "projectName": "SEOStore.Domain",
+        "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj",
+        "packagesPath": "C:\\Users\\fer_f\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\fer_f\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.316/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj",
+        "projectName": "SEOStore.Infrastructure",
+        "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\fer_f\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\fer_f\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj": {
+                "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.316/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Shared\\SEOStore.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Shared\\SEOStore.Shared.csproj",
+        "projectName": "SEOStore.Shared",
+        "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Shared\\SEOStore.Shared.csproj",
+        "packagesPath": "C:\\Users\\fer_f\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\fer_f\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.316/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Web\\SEOStore.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Web\\SEOStore.Web.csproj",
+        "projectName": "SEOStore.Web",
+        "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Web\\SEOStore.Web.csproj",
+        "packagesPath": "C:\\Users\\fer_f\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\fer_f\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj": {
+                "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj"
+              },
+              "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj": {
+                "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj"
+              },
+              "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj"
+              },
+              "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Shared\\SEOStore.Shared.csproj": {
+                "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Shared\\SEOStore.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.316/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
