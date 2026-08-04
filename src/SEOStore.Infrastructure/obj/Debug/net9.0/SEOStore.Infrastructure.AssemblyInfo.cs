@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SEOStore.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f749afe3c95d5c214ecb7ae2760d3c454ab65a5f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f531454d91b9980bdb78f296a2056ee6aa11d19")]
 [assembly: System.Reflection.AssemblyProductAttribute("SEOStore.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SEOStore.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -997,6 +997,10 @@
       "SEOStore.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.10",
+          "SEOStore.Domain": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/SEOStore.Application.dll": {}
         },
@@ -1022,6 +1026,7 @@
           "Microsoft.EntityFrameworkCore": "9.0.10",
           "Microsoft.EntityFrameworkCore.Relational": "9.0.10",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4",
+          "SEOStore.Application": "1.0.0",
           "SEOStore.Domain": "1.0.0"
         },
         "compile": {
@@ -1029,7 +1034,10 @@
         },
         "runtime": {
           "bin/placeholder/SEOStore.Infrastructure.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "SEOStore.Shared/1.0.0": {
         "type": "project",

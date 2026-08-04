@@ -31,7 +31,11 @@
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj": {
+                "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -49,6 +53,12 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -162,6 +172,9 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
+              "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj": {
+                "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj"
+              },
               "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj": {
                 "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj"
               }
@@ -219,6 +232,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

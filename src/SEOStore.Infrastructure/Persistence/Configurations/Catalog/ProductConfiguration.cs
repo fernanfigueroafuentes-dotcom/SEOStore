@@ -55,7 +55,7 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
 
 
         builder.Property(x => x.ShowPrice)
-            .HasDefaultValue(true);
+            .HasDefaultValue(false);
 
 
         builder.Property(x => x.Published)

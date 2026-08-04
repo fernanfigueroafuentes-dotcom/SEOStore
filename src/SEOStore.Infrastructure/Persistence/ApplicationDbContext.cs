@@ -27,6 +27,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<CartItem> CartItems => Set<CartItem>();
     public DbSet<Order> Orders => Set<Order>();
     public DbSet<OrderItem> OrderItems => Set<OrderItem>();
+    public DbSet<Payment> Payments => Set<Payment>();
 
     // Content
     public DbSet<BlogPost> BlogPosts => Set<BlogPost>();
@@ -38,6 +39,10 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 
     // Integrations
     public DbSet<MercadoLibreAuth> MercadoLibreAuths => Set<MercadoLibreAuth>();
+
+    // Identity extensions
+    public DbSet<Address> Addresses => Set<Address>();
+    public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

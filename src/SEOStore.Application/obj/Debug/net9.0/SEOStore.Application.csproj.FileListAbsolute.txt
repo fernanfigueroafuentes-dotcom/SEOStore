@@ -9,3 +9,19 @@ C:\Users\fer_f\Desktop\hillarious purpose\SEOStore\src\SEOStore.Application\obj\
 C:\Users\fer_f\Desktop\hillarious purpose\SEOStore\src\SEOStore.Application\obj\Debug\net9.0\refint\SEOStore.Application.dll
 C:\Users\fer_f\Desktop\hillarious purpose\SEOStore\src\SEOStore.Application\obj\Debug\net9.0\SEOStore.Application.pdb
 C:\Users\fer_f\Desktop\hillarious purpose\SEOStore\src\SEOStore.Application\obj\Debug\net9.0\ref\SEOStore.Application.dll
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Application\bin\Debug\net9.0\SEOStore.Application.deps.json
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Application\bin\Debug\net9.0\SEOStore.Application.dll
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Application\bin\Debug\net9.0\SEOStore.Application.pdb
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Application\bin\Debug\net9.0\SEOStore.Domain.dll
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Application\bin\Debug\net9.0\SEOStore.Domain.pdb
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Application\obj\Debug\net9.0\SEOStore.Application.csproj.AssemblyReference.cache
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Application\obj\Debug\net9.0\SEOStore.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Application\obj\Debug\net9.0\SEOStore.Application.AssemblyInfoInputs.cache
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Application\obj\Debug\net9.0\SEOStore.Application.AssemblyInfo.cs
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Application\obj\Debug\net9.0\SEOStore.Application.csproj.CoreCompileInputs.cache
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Application\obj\Debug\net9.0\SEOStore.Application.sourcelink.json
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Application\obj\Debug\net9.0\SEOStore.921EFD0E.Up2Date
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Application\obj\Debug\net9.0\SEOStore.Application.dll
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Application\obj\Debug\net9.0\refint\SEOStore.Application.dll
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Application\obj\Debug\net9.0\SEOStore.Application.pdb
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Application\obj\Debug\net9.0\ref\SEOStore.Application.dll

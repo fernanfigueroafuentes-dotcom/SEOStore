@@ -6,6 +6,7 @@ public class RefreshToken : BaseEntity
 {
     public string UserId { get; set; } = null!;
 
+    public ApplicationUser User { get; set; } = null!;
 
     public string Token { get; set; } = string.Empty;
 

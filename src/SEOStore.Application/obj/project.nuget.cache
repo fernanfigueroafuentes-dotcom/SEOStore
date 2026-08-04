@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "994avVoDtGA=",
+  "dgSpecHash": "axKDU5V8TbI=",
   "success": true,
   "projectFilePath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\fer_f\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.10\\microsoft.extensions.dependencyinjection.abstractions.9.0.10.nupkg.sha512"
+  ],
   "logs": []
 }

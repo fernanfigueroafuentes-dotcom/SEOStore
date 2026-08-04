@@ -9,3 +9,15 @@ C:\Users\fer_f\Desktop\hillarious purpose\SEOStore\src\SEOStore.Shared\obj\Debug
 C:\Users\fer_f\Desktop\hillarious purpose\SEOStore\src\SEOStore.Shared\obj\Debug\net9.0\refint\SEOStore.Shared.dll
 C:\Users\fer_f\Desktop\hillarious purpose\SEOStore\src\SEOStore.Shared\obj\Debug\net9.0\SEOStore.Shared.pdb
 C:\Users\fer_f\Desktop\hillarious purpose\SEOStore\src\SEOStore.Shared\obj\Debug\net9.0\ref\SEOStore.Shared.dll
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Shared\bin\Debug\net9.0\SEOStore.Shared.deps.json
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Shared\bin\Debug\net9.0\SEOStore.Shared.dll
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Shared\bin\Debug\net9.0\SEOStore.Shared.pdb
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Shared\obj\Debug\net9.0\SEOStore.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Shared\obj\Debug\net9.0\SEOStore.Shared.AssemblyInfoInputs.cache
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Shared\obj\Debug\net9.0\SEOStore.Shared.AssemblyInfo.cs
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Shared\obj\Debug\net9.0\SEOStore.Shared.csproj.CoreCompileInputs.cache
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Shared\obj\Debug\net9.0\SEOStore.Shared.sourcelink.json
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Shared\obj\Debug\net9.0\SEOStore.Shared.dll
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Shared\obj\Debug\net9.0\refint\SEOStore.Shared.dll
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Shared\obj\Debug\net9.0\SEOStore.Shared.pdb
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Shared\obj\Debug\net9.0\ref\SEOStore.Shared.dll

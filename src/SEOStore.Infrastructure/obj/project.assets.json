@@ -994,6 +994,20 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "SEOStore.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.10",
+          "SEOStore.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SEOStore.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SEOStore.Application.dll": {}
+        }
+      },
       "SEOStore.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
@@ -2957,6 +2971,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "SEOStore.Application/1.0.0": {
+      "type": "project",
+      "path": "../SEOStore.Application/SEOStore.Application.csproj",
+      "msbuildProject": "../SEOStore.Application/SEOStore.Application.csproj"
+    },
     "SEOStore.Domain/1.0.0": {
       "type": "project",
       "path": "../SEOStore.Domain/SEOStore.Domain.csproj",
@@ -2970,6 +2989,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 9.0.10",
       "Microsoft.EntityFrameworkCore.Relational >= 9.0.10",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 9.0.4",
+      "SEOStore.Application >= 1.0.0",
       "SEOStore.Domain >= 1.0.0"
     ]
   },
@@ -3005,6 +3025,9 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
+            "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj": {
+              "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj"
+            },
             "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj": {
               "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj"
             }
@@ -3062,6 +3085,9 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }

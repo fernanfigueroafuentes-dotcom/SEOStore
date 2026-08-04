@@ -661,6 +661,10 @@
       "System.Text.Json/9.0.10": {},
       "System.Threading.Channels/7.0.0": {},
       "SEOStore.Application/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.10",
+          "SEOStore.Domain": "1.0.0"
+        },
         "runtime": {
           "SEOStore.Application.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -682,6 +686,7 @@
           "Microsoft.EntityFrameworkCore": "9.0.10",
           "Microsoft.EntityFrameworkCore.Relational": "9.0.10",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4",
+          "SEOStore.Application": "1.0.0",
           "SEOStore.Domain": "1.0.0"
         },
         "runtime": {
