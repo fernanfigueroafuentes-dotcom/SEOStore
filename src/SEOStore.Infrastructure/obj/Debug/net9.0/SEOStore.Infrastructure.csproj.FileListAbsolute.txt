@@ -19,7 +19,9 @@ C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Infrastructure\bin\Debug\net9.0
 C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Infrastructure\bin\Debug\net9.0\SEOStore.Infrastructure.runtimeconfig.json
 C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Infrastructure\bin\Debug\net9.0\SEOStore.Infrastructure.dll
 C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Infrastructure\bin\Debug\net9.0\SEOStore.Infrastructure.pdb
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Infrastructure\bin\Debug\net9.0\SEOStore.Application.dll
 C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Infrastructure\bin\Debug\net9.0\SEOStore.Domain.dll
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Infrastructure\bin\Debug\net9.0\SEOStore.Application.pdb
 C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Infrastructure\bin\Debug\net9.0\SEOStore.Domain.pdb
 C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Infrastructure\obj\Debug\net9.0\SEOStore.Infrastructure.csproj.AssemblyReference.cache
 C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Infrastructure\obj\Debug\net9.0\SEOStore.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
@@ -33,5 +35,3 @@ C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Infrastructure\obj\Debug\net9.0
 C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Infrastructure\obj\Debug\net9.0\SEOStore.Infrastructure.pdb
 C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Infrastructure\obj\Debug\net9.0\SEOStore.Infrastructure.genruntimeconfig.cache
 C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Infrastructure\obj\Debug\net9.0\ref\SEOStore.Infrastructure.dll
-C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Infrastructure\bin\Debug\net9.0\SEOStore.Application.dll
-C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Infrastructure\bin\Debug\net9.0\SEOStore.Application.pdb

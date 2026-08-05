@@ -23,6 +23,8 @@ public static class DependencyInjection
             .AddDefaultTokenProviders();
 
         services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<IBrandRepository, BrandRepository>();
+        services.AddScoped<IProductRepository, ProductRepository>();
 
         return services;
     }
