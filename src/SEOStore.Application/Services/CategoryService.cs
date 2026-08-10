@@ -37,23 +37,17 @@ public class CategoryService : ICategoryService
 
     public async Task<CategoryDto> CreateAsync(CreateCategoryDto dto, CancellationToken cancellationToken = default)
     {
-        var slug = await GenerateUniqueSlugAsync(dto.Name, cancellationToken);
-
-        var category = new Category
-        {
-            Name = dto.Name,
-            Slug = slug,
-            Description = dto.Description,
-            ImageUrl = dto.ImageUrl,
-            ParentCategoryId = dto.ParentCategoryId,
-            DisplayOrder = dto.DisplayOrder,
-            MetaTitle = dto.MetaTitle,
-            MetaDescription = dto.MetaDescription,
-            Published = true,
-            CreatedAt = DateTime.UtcNow
-        };
+        var category = Category.Create(
+            dto.Name,
+            dto.Description,
+            dto.ImageUrl,
+            dto.ParentCategoryId,
+            dto.DisplayOrder,
+            dto.MetaTitle,
+            dto.MetaDescription);
 
         await _categoryRepository.AddAsync(category, cancellationToken);
+
         return MapToDto(category);
     }
 
@@ -64,20 +58,21 @@ public class CategoryService : ICategoryService
 
         if (!string.Equals(category.Name, dto.Name, StringComparison.Ordinal))
         {
-            category.Slug = await GenerateUniqueSlugAsync(dto.Name, cancellationToken, category.Id);
+            category.Rename(dto.Name);
         }
 
-        category.Name = dto.Name;
-        category.Description = dto.Description;
-        category.ImageUrl = dto.ImageUrl;
-        category.ParentCategoryId = dto.ParentCategoryId;
-        category.Published = dto.Published;
-        category.DisplayOrder = dto.DisplayOrder;
-        category.MetaTitle = dto.MetaTitle;
-        category.MetaDescription = dto.MetaDescription;
-        category.UpdatedAt = DateTime.UtcNow;
+        category.UpdateDetails(
+            dto.Description,
+            dto.ImageUrl,
+            dto.DisplayOrder,
+            dto.Published,
+            dto.MetaTitle,
+            dto.MetaDescription);
+
+        category.SetParentId(dto.ParentCategoryId);
 
         await _categoryRepository.UpdateAsync(category, cancellationToken);
+
         return MapToDto(category);
     }
 
@@ -100,48 +95,4 @@ public class CategoryService : ICategoryService
         Published = category.Published,
         DisplayOrder = category.DisplayOrder
     };
-
-    private async Task<string> GenerateUniqueSlugAsync(
-        string name,
-        CancellationToken cancellationToken,
-        int? excludeId = null)
-    {
-        var baseSlug = GenerateSlug(name);
-        var slug = baseSlug;
-        var suffix = 1;
-
-        while (await SlugExistsAsync(slug, excludeId, cancellationToken))
-        {
-            slug = $"{baseSlug}-{suffix++}";
-        }
-
-        return slug;
-    }
-
-    private async Task<bool> SlugExistsAsync(string slug, int? excludeId, CancellationToken cancellationToken)
-    {
-        var existing = await _categoryRepository.GetBySlugAsync(slug, cancellationToken);
-        return existing is not null && existing.Id != excludeId;
-    }
-
-    private static string GenerateSlug(string name)
-    {
-        var normalized = name.Normalize(NormalizationForm.FormD);
-        var builder = new StringBuilder();
-
-        foreach (var c in normalized)
-        {
-            if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
-            {
-                builder.Append(c);
-            }
-        }
-
-        var slug = builder.ToString().Normalize(NormalizationForm.FormC).ToLowerInvariant();
-        slug = Regex.Replace(slug, @"[^a-z0-9\s-]", string.Empty);
-        slug = Regex.Replace(slug, @"\s+", "-");
-        slug = Regex.Replace(slug, @"-+", "-").Trim('-');
-
-        return string.IsNullOrWhiteSpace(slug) ? "category" : slug;
-    }
 }

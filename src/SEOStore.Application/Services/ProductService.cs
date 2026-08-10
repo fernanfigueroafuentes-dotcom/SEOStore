@@ -1,6 +1,3 @@
-using System.Globalization;
-using System.Text;
-using System.Text.RegularExpressions;
 using SEOStore.Application.Features.Products.DTOs;
 using SEOStore.Application.Interfaces.Repositories;
 using SEOStore.Application.Interfaces.Services;
@@ -37,27 +34,22 @@ public class ProductService : IProductService
 
     public async Task<ProductDto> CreateAsync(CreateProductDto dto, CancellationToken cancellationToken = default)
     {
-        var slug = await GenerateUniqueSlugAsync(dto.Name, cancellationToken);
-
-        var product = new Product
-        {
-            Name = dto.Name,
-            Slug = slug,
-            SKU = dto.SKU,
-            ShortDescription = dto.ShortDescription,
-            Description = dto.Description,
-            Price = dto.Price,
-            ShowPrice = dto.ShowPrice,
-            Featured = dto.Featured,
-            Published = dto.Published,
-            ThumbnailUrl = dto.ThumbnailUrl,
-            WhatsAppMessage = dto.WhatsAppMessage,
-            CategoryId = dto.CategoryId,
-            BrandId = dto.BrandId,
-            CreatedAt = DateTime.UtcNow
-        };
+        var product = Product.Create(
+            dto.Name,
+            dto.SKU,
+            dto.ShortDescription,
+            dto.Description,
+            dto.Price,
+            dto.ShowPrice,
+            dto.Featured,
+            dto.Published,
+            dto.ThumbnailUrl,
+            dto.WhatsAppMessage,
+            dto.CategoryId,
+            dto.BrandId);
 
         await _productRepository.AddAsync(product, cancellationToken);
+
         return MapToDto(product);
     }
 
@@ -67,25 +59,23 @@ public class ProductService : IProductService
             ?? throw new KeyNotFoundException($"Product with id {dto.Id} was not found.");
 
         if (!string.Equals(product.Name, dto.Name, StringComparison.Ordinal))
-        {
-            product.Slug = await GenerateUniqueSlugAsync(dto.Name, cancellationToken, product.Id);
-        }
+            product.Rename(dto.Name);
 
-        product.Name = dto.Name;
-        product.SKU = dto.SKU;
-        product.ShortDescription = dto.ShortDescription;
-        product.Description = dto.Description;
-        product.Price = dto.Price;
-        product.ShowPrice = dto.ShowPrice;
-        product.Featured = dto.Featured;
-        product.Published = dto.Published;
-        product.ThumbnailUrl = dto.ThumbnailUrl;
-        product.WhatsAppMessage = dto.WhatsAppMessage;
-        product.CategoryId = dto.CategoryId;
-        product.BrandId = dto.BrandId;
-        product.UpdatedAt = DateTime.UtcNow;
+        product.UpdateDetails(
+            dto.SKU,
+            dto.ShortDescription,
+            dto.Description,
+            dto.Price,
+            dto.ShowPrice,
+            dto.Featured,
+            dto.Published,
+            dto.ThumbnailUrl,
+            dto.WhatsAppMessage,
+            dto.CategoryId,
+            dto.BrandId);
 
         await _productRepository.UpdateAsync(product, cancellationToken);
+
         return MapToDto(product);
     }
 
@@ -114,48 +104,4 @@ public class ProductService : IProductService
         CategoryId = product.CategoryId,
         BrandId = product.BrandId
     };
-
-    private async Task<string> GenerateUniqueSlugAsync(
-        string name,
-        CancellationToken cancellationToken,
-        int? excludeId = null)
-    {
-        var baseSlug = GenerateSlug(name);
-        var slug = baseSlug;
-        var suffix = 1;
-
-        while (await SlugExistsAsync(slug, excludeId, cancellationToken))
-        {
-            slug = $"{baseSlug}-{suffix++}";
-        }
-
-        return slug;
-    }
-
-    private async Task<bool> SlugExistsAsync(string slug, int? excludeId, CancellationToken cancellationToken)
-    {
-        var existing = await _productRepository.GetBySlugAsync(slug, cancellationToken);
-        return existing is not null && existing.Id != excludeId;
-    }
-
-    private static string GenerateSlug(string name)
-    {
-        var normalized = name.Normalize(NormalizationForm.FormD);
-        var builder = new StringBuilder();
-
-        foreach (var c in normalized)
-        {
-            if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
-            {
-                builder.Append(c);
-            }
-        }
-
-        var slug = builder.ToString().Normalize(NormalizationForm.FormC).ToLowerInvariant();
-        slug = Regex.Replace(slug, @"[^a-z0-9\s-]", string.Empty);
-        slug = Regex.Replace(slug, @"\s+", "-");
-        slug = Regex.Replace(slug, @"-+", "-").Trim('-');
-
-        return string.IsNullOrWhiteSpace(slug) ? "product" : slug;
-    }
 }

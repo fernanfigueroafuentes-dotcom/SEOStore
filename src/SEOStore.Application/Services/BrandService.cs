@@ -1,6 +1,3 @@
-using System.Globalization;
-using System.Text;
-using System.Text.RegularExpressions;
 using SEOStore.Application.Features.Brands.DTOs;
 using SEOStore.Application.Interfaces.Repositories;
 using SEOStore.Application.Interfaces.Services;
@@ -37,17 +34,7 @@ public class BrandService : IBrandService
 
     public async Task<BrandDto> CreateAsync(CreateBrandDto dto, CancellationToken cancellationToken = default)
     {
-        var slug = await GenerateUniqueSlugAsync(dto.Name, cancellationToken);
-
-        var brand = new Brand
-        {
-            Name = dto.Name,
-            Slug = slug,
-            Description = dto.Description,
-            LogoUrl = dto.LogoUrl,
-            CreatedAt = DateTime.UtcNow
-        };
-
+        var brand = Brand.Create(dto.Name, dto.Description, dto.LogoUrl);
         await _brandRepository.AddAsync(brand, cancellationToken);
         return MapToDto(brand);
     }
@@ -58,16 +45,11 @@ public class BrandService : IBrandService
             ?? throw new KeyNotFoundException($"Brand with id {dto.Id} was not found.");
 
         if (!string.Equals(brand.Name, dto.Name, StringComparison.Ordinal))
-        {
-            brand.Slug = await GenerateUniqueSlugAsync(dto.Name, cancellationToken, brand.Id);
-        }
+            brand.Rename(dto.Name);
 
-        brand.Name = dto.Name;
-        brand.Description = dto.Description;
-        brand.LogoUrl = dto.LogoUrl;
-        brand.UpdatedAt = DateTime.UtcNow;
-
+        brand.UpdateDetails(dto.Description, dto.LogoUrl);
         await _brandRepository.UpdateAsync(brand, cancellationToken);
+
         return MapToDto(brand);
     }
 
@@ -87,48 +69,4 @@ public class BrandService : IBrandService
         Description = brand.Description,
         LogoUrl = brand.LogoUrl
     };
-
-    private async Task<string> GenerateUniqueSlugAsync(
-        string name,
-        CancellationToken cancellationToken,
-        int? excludeId = null)
-    {
-        var baseSlug = GenerateSlug(name);
-        var slug = baseSlug;
-        var suffix = 1;
-
-        while (await SlugExistsAsync(slug, excludeId, cancellationToken))
-        {
-            slug = $"{baseSlug}-{suffix++}";
-        }
-
-        return slug;
-    }
-
-    private async Task<bool> SlugExistsAsync(string slug, int? excludeId, CancellationToken cancellationToken)
-    {
-        var existing = await _brandRepository.GetBySlugAsync(slug, cancellationToken);
-        return existing is not null && existing.Id != excludeId;
-    }
-
-    private static string GenerateSlug(string name)
-    {
-        var normalized = name.Normalize(NormalizationForm.FormD);
-        var builder = new StringBuilder();
-
-        foreach (var c in normalized)
-        {
-            if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
-            {
-                builder.Append(c);
-            }
-        }
-
-        var slug = builder.ToString().Normalize(NormalizationForm.FormC).ToLowerInvariant();
-        slug = Regex.Replace(slug, @"[^a-z0-9\s-]", string.Empty);
-        slug = Regex.Replace(slug, @"\s+", "-");
-        slug = Regex.Replace(slug, @"-+", "-").Trim('-');
-
-        return string.IsNullOrWhiteSpace(slug) ? "brand" : slug;
-    }
 }
