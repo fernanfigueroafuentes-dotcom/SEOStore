@@ -3,9 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SEOStore.Application.Interfaces.Repositories;
+using SEOStore.Application.Interfaces.Services;
 using SEOStore.Infrastructure.Identity;
 using SEOStore.Infrastructure.Persistence;
 using SEOStore.Infrastructure.Persistence.Repositories;
+using SEOStore.Infrastructure.Services;
 
 namespace SEOStore.Infrastructure;
 
@@ -25,6 +27,8 @@ public static class DependencyInjection
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IBrandRepository, BrandRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<IProductImageRepository, ProductImageRepository>();
+        services.AddScoped<IImageStorageService, CloudinaryImageStorageService>();
 
         return services;
     }

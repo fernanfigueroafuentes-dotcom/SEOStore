@@ -212,3 +212,5 @@ C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Web\obj\Debug\net9.0\refint\SEO
 C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Web\obj\Debug\net9.0\SEOStore.Web.pdb
 C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Web\obj\Debug\net9.0\SEOStore.Web.genruntimeconfig.cache
 C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Web\obj\Debug\net9.0\ref\SEOStore.Web.dll
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Web\bin\Debug\net9.0\CloudinaryDotNet.dll
+C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Web\bin\Debug\net9.0\Newtonsoft.Json.dll
