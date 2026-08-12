@@ -1,0 +1,34 @@
+# .NET build output
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.dbmdl
+*.jfm
+*.pidb
+*.svclog
+
+# VS Code
+.vscode/
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+
+# Rider / JetBrains
+.idea/
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
