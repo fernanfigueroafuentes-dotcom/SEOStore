@@ -27,13 +27,13 @@ public class ProductImageController : ControllerBase
             var images = await _productImageService.GetAllByProductAsync(productId, cancellationToken);
             return Ok(images);
         }
-        catch (KeyNotFoundException ex)
+        catch (KeyNotFoundException)
         {
-            return NotFound(new { message = ex.Message });
+            return NotFound(new { message = "The requested resource was not found." });
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -48,9 +48,9 @@ public class ProductImageController : ControllerBase
 
             return Ok(image);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -66,17 +66,17 @@ public class ProductImageController : ControllerBase
             var image = await _productImageService.CreateAsync(dto, cancellationToken);
             return CreatedAtAction(nameof(GetById), new { productId, id = image.Id }, image);
         }
-        catch (KeyNotFoundException ex)
+        catch (KeyNotFoundException)
         {
-            return NotFound(new { message = ex.Message });
+            return NotFound(new { message = "The requested resource was not found." });
         }
-        catch (InvalidOperationException ex)
+        catch (InvalidOperationException)
         {
-            return BadRequest(new { message = ex.Message });
+            return BadRequest(new { message = "The request cannot be completed." });
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -105,17 +105,17 @@ public class ProductImageController : ControllerBase
             var image = await _productImageService.CreateAsync(dto, cancellationToken);
             return CreatedAtAction(nameof(GetById), new { productId, id = image.Id }, image);
         }
-        catch (KeyNotFoundException ex)
+        catch (KeyNotFoundException)
         {
-            return NotFound(new { message = ex.Message });
+            return NotFound(new { message = "The requested resource was not found." });
         }
-        catch (InvalidOperationException ex)
+        catch (InvalidOperationException)
         {
-            return BadRequest(new { message = ex.Message });
+            return BadRequest(new { message = "The request cannot be completed." });
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -134,17 +134,17 @@ public class ProductImageController : ControllerBase
             var image = await _productImageService.UpdateAsync(dto, cancellationToken);
             return Ok(image);
         }
-        catch (KeyNotFoundException ex)
+        catch (KeyNotFoundException)
         {
-            return NotFound(new { message = ex.Message });
+            return NotFound(new { message = "The requested resource was not found." });
         }
-        catch (InvalidOperationException ex)
+        catch (InvalidOperationException)
         {
-            return BadRequest(new { message = ex.Message });
+            return BadRequest(new { message = "The request cannot be completed." });
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -160,13 +160,13 @@ public class ProductImageController : ControllerBase
             await _productImageService.DeleteAsync(id, cancellationToken);
             return NoContent();
         }
-        catch (KeyNotFoundException ex)
+        catch (KeyNotFoundException)
         {
-            return NotFound(new { message = ex.Message });
+            return NotFound(new { message = "The requested resource was not found." });
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -182,13 +182,13 @@ public class ProductImageController : ControllerBase
             var updated = await _productImageService.SetPrimaryAsync(id, cancellationToken);
             return Ok(updated);
         }
-        catch (KeyNotFoundException ex)
+        catch (KeyNotFoundException)
         {
-            return NotFound(new { message = ex.Message });
+            return NotFound(new { message = "The requested resource was not found." });
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 }

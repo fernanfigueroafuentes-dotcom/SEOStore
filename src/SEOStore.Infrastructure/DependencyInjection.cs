@@ -28,6 +28,7 @@ public static class DependencyInjection
         services.AddScoped<IBrandRepository, BrandRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IProductImageRepository, ProductImageRepository>();
+        services.AddScoped<ICartRepository, CartRepository>();
         services.AddScoped<IImageStorageService, CloudinaryImageStorageService>();
 
         return services;

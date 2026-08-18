@@ -1,6 +1,6 @@
 using SEOStore.Domain.Entities.Commerce;
 
-namespace SEOStore.Application.Interfaces;
+namespace SEOStore.Application.Interfaces.Repositories;
 
 public interface ICartRepository
 {

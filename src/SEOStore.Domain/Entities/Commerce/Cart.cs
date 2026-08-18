@@ -21,9 +21,9 @@ public class Cart : BaseEntity
     }
 
     public void AddItem(
-    int productId,
-    int quantity,
-    decimal unitPrice)
+        int productId,
+        int quantity,
+        decimal unitPrice)
     {
         if (productId <= 0)
             throw new ArgumentException(
@@ -46,6 +46,7 @@ public class Cart : BaseEntity
         if (existingItem is not null)
         {
             existingItem.IncreaseQuantity(quantity);
+            UpdatedAt = DateTime.UtcNow;
             return;
         }
 
@@ -55,6 +56,8 @@ public class Cart : BaseEntity
                 productId,
                 quantity,
                 unitPrice));
+
+        UpdatedAt = DateTime.UtcNow;
     }
 
     public void UpdateItemQuantity(int productId, int quantity)
@@ -73,6 +76,7 @@ public class Cart : BaseEntity
         }
 
         item.UpdateQuantity(quantity);
+        UpdatedAt = DateTime.UtcNow;
     }
 
     public void RemoveItem(int productId)
@@ -80,12 +84,16 @@ public class Cart : BaseEntity
         var item = Items.FirstOrDefault(
             x => x.ProductId == productId);
 
-        if (item is not null)
-            Items.Remove(item);
+        if (item is null)
+            throw new InvalidOperationException("Product is not in the cart.");
+
+        Items.Remove(item);
+        UpdatedAt = DateTime.UtcNow;
     }
 
     public void Clear()
     {
         Items.Clear();
+        UpdatedAt = DateTime.UtcNow;
     }
 }

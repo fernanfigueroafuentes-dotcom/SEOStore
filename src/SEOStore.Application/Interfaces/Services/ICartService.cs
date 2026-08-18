@@ -1,6 +1,6 @@
-using SEOStore.Application.DTOs.Cart;
+using SEOStore.Application.Features.Carts.DTOs;
 
-namespace SEOStore.Application.Interfaces;
+namespace SEOStore.Application.Interfaces.Services;
 
 public interface ICartService
 {

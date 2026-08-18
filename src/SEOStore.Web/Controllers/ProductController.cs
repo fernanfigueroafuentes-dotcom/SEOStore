@@ -24,9 +24,9 @@ public class ProductsController : ControllerBase
             var products = await _productService.GetAllAsync(cancellationToken);
             return Ok(products);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -38,9 +38,9 @@ public class ProductsController : ControllerBase
             var product = await _productService.GetByIdAsync(id, cancellationToken);
             return product is null ? NotFound() : Ok(product);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -52,9 +52,9 @@ public class ProductsController : ControllerBase
             var product = await _productService.CreateAsync(dto, cancellationToken);
             return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -69,13 +69,13 @@ public class ProductsController : ControllerBase
             var product = await _productService.UpdateAsync(dto, cancellationToken);
             return Ok(product);
         }
-        catch (KeyNotFoundException ex)
+        catch (KeyNotFoundException)
         {
-            return NotFound(new { message = ex.Message });
+            return NotFound(new { message = "The requested resource was not found." });
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -87,13 +87,13 @@ public class ProductsController : ControllerBase
             await _productService.DeleteAsync(id, cancellationToken);
             return NoContent();
         }
-        catch (KeyNotFoundException ex)
+        catch (KeyNotFoundException)
         {
-            return NotFound(new { message = ex.Message });
+            return NotFound(new { message = "The requested resource was not found." });
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 }

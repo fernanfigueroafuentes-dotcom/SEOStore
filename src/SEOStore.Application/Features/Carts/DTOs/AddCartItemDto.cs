@@ -1,4 +1,4 @@
-namespace SEOStore.Application.DTOs.Cart;
+namespace SEOStore.Application.Features.Carts.DTOs;
 
 public class AddCartItemDto
 {

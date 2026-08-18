@@ -51,6 +51,7 @@ public class CartItem : BaseEntity
         ProductId = productId;
         Quantity = quantity;
         UnitPrice = unitPrice;
+        CreatedAt = DateTime.UtcNow;
     }
 
     internal void IncreaseQuantity(int quantity)
@@ -61,6 +62,7 @@ public class CartItem : BaseEntity
                 nameof(quantity));
 
         Quantity += quantity;
+        UpdatedAt = DateTime.UtcNow;
     }
 
     internal void UpdateQuantity(int quantity)
@@ -71,6 +73,7 @@ public class CartItem : BaseEntity
                 nameof(quantity));
 
         Quantity = quantity;
+        UpdatedAt = DateTime.UtcNow;
     }
 
     internal void UpdateUnitPrice(decimal unitPrice)
@@ -81,6 +84,7 @@ public class CartItem : BaseEntity
                 nameof(unitPrice));
 
         UnitPrice = unitPrice;
+        UpdatedAt = DateTime.UtcNow;
     }
 
     public decimal GetTotal()

@@ -24,9 +24,9 @@ public class CategoriesController : ControllerBase
             var categories = await _categoryService.GetAllAsync();
             return Ok(categories);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -38,9 +38,9 @@ public class CategoriesController : ControllerBase
             var category = await _categoryService.GetByIdAsync(id);
             return category is null ? NotFound() : Ok(category);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -52,9 +52,9 @@ public class CategoriesController : ControllerBase
             var category = await _categoryService.CreateAsync(dto);
             return CreatedAtAction(nameof(GetCategoryById), new { id = category.Id }, category);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -69,13 +69,13 @@ public class CategoriesController : ControllerBase
             var category = await _categoryService.UpdateAsync(dto);
             return Ok(category);
         }
-        catch (KeyNotFoundException ex)
+        catch (KeyNotFoundException)
         {
-            return NotFound(new { message = ex.Message });
+            return NotFound(new { message = "The requested resource was not found." });
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -87,9 +87,9 @@ public class CategoriesController : ControllerBase
             await _categoryService.DeleteAsync(id);
             return NoContent();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 

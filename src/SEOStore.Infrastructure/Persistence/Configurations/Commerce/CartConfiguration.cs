@@ -14,7 +14,11 @@ public class CartConfiguration : IEntityTypeConfiguration<Cart>
 
 
         builder.Property(x => x.UserId)
+            .IsRequired()
             .HasMaxLength(450);
+
+        builder.HasIndex(x => x.UserId)
+            .IsUnique();
 
 
         builder.Property(x => x.CreatedAt)

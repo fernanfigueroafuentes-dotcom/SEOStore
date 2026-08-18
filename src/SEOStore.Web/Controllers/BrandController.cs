@@ -23,9 +23,9 @@ public class BrandsController : ControllerBase
             var brands = await _brandService.GetAllAsync(cancellationToken);
             return Ok(brands);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -37,9 +37,9 @@ public class BrandsController : ControllerBase
             var brand = await _brandService.GetByIdAsync(id, cancellationToken);
             return brand is null ? NotFound() : Ok(brand);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -51,9 +51,9 @@ public class BrandsController : ControllerBase
             var brand = await _brandService.CreateAsync(dto, cancellationToken);
             return CreatedAtAction(nameof(GetById), new { id = brand.Id }, brand);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -68,13 +68,13 @@ public class BrandsController : ControllerBase
             var brand = await _brandService.UpdateAsync(dto, cancellationToken);
             return Ok(brand);
         }
-        catch (KeyNotFoundException ex)
+        catch (KeyNotFoundException)
         {
-            return NotFound(new { message = ex.Message });
+            return NotFound(new { message = "The requested resource was not found." });
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
@@ -86,13 +86,13 @@ public class BrandsController : ControllerBase
             await _brandService.DeleteAsync(id, cancellationToken);
             return NoContent();
         }
-        catch (KeyNotFoundException ex)
+        catch (KeyNotFoundException)
         {
-            return NotFound(new { message = ex.Message });
+            return NotFound(new { message = "The requested resource was not found." });
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return StatusCode(500, new { message = ex.Message });
+            return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 }

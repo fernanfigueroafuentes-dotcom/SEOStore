@@ -1,4 +1,4 @@
-namespace SEOStore.Application.DTOs.Cart;
+namespace SEOStore.Application.Features.Carts.DTOs;
 
 public class CartDto
 {
@@ -6,7 +6,7 @@ public class CartDto
 
     public string UserId { get; set; } = string.Empty;
 
-    public List<CartItemDto> Items { get; set; } = new();
+    public List<CartItemDto> Items { get; set; } = [];
 
     public decimal Total => Items.Sum(x => x.Total);
 }

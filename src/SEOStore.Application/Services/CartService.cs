@@ -1,9 +1,9 @@
-using SEOStore.Application.DTOs.Cart;
+using SEOStore.Application.Features.Carts.DTOs;
 using SEOStore.Application.Interfaces;
 using SEOStore.Domain.Entities.Commerce;
 using SEOStore.Application.Interfaces.Repositories;
 
-namespace SEOStore.Application.Services;
+namespace SEOStore.Application.Interfaces.Services;
 
 public class CartService : ICartService
 {
@@ -82,7 +82,6 @@ public class CartService : ICartService
         await _cartRepository.UpdateAsync(
             cart,
             cancellationToken);
-
         return MapToDto(cart);
     }
 
@@ -149,7 +148,8 @@ public class CartService : ICartService
 
         cart.Clear();
 
-        await _cartRepository.SaveChangesAsync(
+        await _cartRepository.UpdateAsync(
+            cart,
             cancellationToken);
     }
 
