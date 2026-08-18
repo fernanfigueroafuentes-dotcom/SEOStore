@@ -13,11 +13,11 @@ public class BrandConfiguration : IEntityTypeConfiguration<Brand>
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.Name)
-            .IsRequired()
+            .IsRequired(false)
             .HasMaxLength(100);
 
         builder.Property(x => x.Slug)
-            .IsRequired()
+            .IsRequired(false)
             .HasMaxLength(150);
 
         builder.HasMany(x => x.Products)
