@@ -54,9 +54,10 @@ public class BrandRepository : IBrandRepository
         await UpdateAsync(brand, cancellationToken);
     }
 
-    public async Task<bool> ExistsBySlugAsync(string slug, CancellationToken cancellationToken = default)
+    public Task<bool> ExistsBySlugAsync(string slug, int? excludeId = null, CancellationToken cancellationToken = default)
     {
-        return await _context.Brands
-            .AnyAsync(b => b.Slug == slug && !b.IsDeleted, cancellationToken);
+        return _context.Brands.AnyAsync(
+            brand => brand.Slug == slug && !brand.IsDeleted && (excludeId == null || brand.Id != excludeId),
+            cancellationToken);
     }
 }

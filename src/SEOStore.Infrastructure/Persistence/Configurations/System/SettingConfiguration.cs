@@ -80,5 +80,10 @@ public class SettingConfiguration
 
         builder.Property(x => x.GoogleTagManager)
             .HasMaxLength(100);
+
+        builder.Property(x => x.SiteMode)
+            .HasConversion<string>()
+            .HasMaxLength(20)
+            .HasDefaultValue(SEOStore.Domain.Entities.Configuration.SiteMode.Hybrid);
     }
 }

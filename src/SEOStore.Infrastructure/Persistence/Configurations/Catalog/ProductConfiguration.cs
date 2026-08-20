@@ -23,15 +23,16 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
             .HasMaxLength(50);
 
         builder.HasIndex(x => x.SKU)
-            .IsUnique();
-
+            .IsUnique()
+            .HasFilter("\"IsDeleted\" = FALSE");
 
         builder.Property(x => x.Slug)
             .IsRequired()
             .HasMaxLength(200);
 
         builder.HasIndex(x => x.Slug)
-            .IsUnique();
+            .IsUnique()
+            .HasFilter("\"IsDeleted\" = FALSE");
 
 
         builder.Property(x => x.ShortDescription)
@@ -60,6 +61,8 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
 
         builder.Property(x => x.Published)
             .HasDefaultValue(true);
+
+        builder.Property(x => x.Stock);
 
 
 

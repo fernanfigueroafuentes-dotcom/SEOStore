@@ -1,0 +1,31 @@
+@model SEOStore.Web.Models.Store.CategoryPageViewModel
+
+<nav class="mb-3 small" aria-label="Migas de pan">
+    <a href="/">Inicio</a>
+    <span> / </span>
+    <a href="/productos">Productos</a>
+    <span> / </span>
+    <span>@Model.Category.Name</span>
+</nav>
+
+<h1 class="h3 mb-3">@Model.Category.Name</h1>
+@if (!string.IsNullOrWhiteSpace(Model.Category.Description))
+{
+    <p class="text-muted mb-4">@Model.Category.Description</p>
+}
+
+@if (!Model.Products.Any())
+{
+    <div class="alert alert-light border">No hay productos publicados en esta categoría.</div>
+}
+else
+{
+    <div class="row g-3">
+        @foreach (var product in Model.Products)
+        {
+            <div class="col-12 col-sm-6 col-lg-4">
+                <partial name="_ProductCard" model="product" />
+            </div>
+        }
+    </div>
+}

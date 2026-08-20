@@ -1,32 +1,141 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@using SEOStore.Application.Features.Categories.DTOs
+@using SEOStore.Application.Features.Content.DTOs
+@using SEOStore.Application.Features.Settings.DTOs
+@using SEOStore.Domain.Identity
+@using SEOStore.Web.Seo
+@{
+    var site = ViewData["Site"] as SiteSettingsDto ?? new SiteSettingsDto();
+    var seo = ViewData["Seo"] as SeoPage;
+    var categories = ViewData["NavCategories"] as IEnumerable<CategoryDto> ?? [];
+    var pages = ViewData["NavPages"] as IEnumerable<PageDto> ?? [];
+    var pageTitle = seo?.Title ?? ViewData["Title"]?.ToString() ?? site.SiteName;
+    var fullTitle = pageTitle.Contains(site.SiteName, StringComparison.OrdinalIgnoreCase)
+        ? pageTitle
+        : $"{pageTitle} | {site.SiteName}";
+    var description = seo?.Description;
+    var canonical = SeoUrl.Absolute(Context.Request, seo?.CanonicalPath ?? Context.Request.Path);
+    var robots = $"{(seo is null || seo.Index ? "index" : "noindex")}, {(seo is null || seo.Follow ? "follow" : "nofollow")}";
+    var ogTitle = seo?.OgTitle ?? pageTitle;
+    var ogDescription = seo?.OgDescription ?? description;
+    var ogImage = string.IsNullOrWhiteSpace(seo?.OgImage) ? null : SeoUrl.Absolute(Context.Request, seo.OgImage);
+    var isAdmin = User.IsInRole(AppRoles.Admin);
+}
+<!DOCTYPE html>
+<html lang="es" style="--site-primary: @site.PrimaryColor; --site-secondary: @site.SecondaryColor">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SEOStore.Web</title>
-    <script type="importmap"></script>
+    <title>@fullTitle</title>
+    <meta name="robots" content="@robots" />
+    @if (!string.IsNullOrWhiteSpace(description))
+    {
+        <meta name="description" content="@description" />
+    }
+    <link rel="canonical" href="@canonical" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@ogTitle" />
+    <meta property="og:url" content="@canonical" />
+    <meta property="og:site_name" content="@site.SiteName" />
+    @if (!string.IsNullOrWhiteSpace(ogDescription))
+    {
+        <meta property="og:description" content="@ogDescription" />
+    }
+    @if (!string.IsNullOrWhiteSpace(ogImage))
+    {
+        <meta property="og:image" content="@ogImage" />
+    }
+    @if (!string.IsNullOrWhiteSpace(site.FaviconUrl))
+    {
+        <link rel="icon" href="@site.FaviconUrl" />
+    }
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SEOStore.Web.styles.css" asp-append-version="true" />
+    @if (!string.IsNullOrWhiteSpace(site.GoogleTagManager))
+    {
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','@site.GoogleTagManager');</script>
+    }
+    @if (!string.IsNullOrWhiteSpace(site.GoogleAnalytics))
+    {
+        <script async src="https://www.googletagmanager.com/gtag/js?id=@site.GoogleAnalytics"></script>
+        <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','@site.GoogleAnalytics');</script>
+    }
+    @if (seo is not null)
+    {
+        foreach (var json in seo.JsonLd)
+        {
+            <script type="application/ld+json">@Html.Raw(json)</script>
+        }
+    }
 </head>
 <body>
+    @if (!string.IsNullOrWhiteSpace(site.GoogleTagManager))
+    {
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=@site.GoogleTagManager" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    }
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SEOStore.Web</a>
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+                    @if (!string.IsNullOrWhiteSpace(site.LogoUrl))
+                    {
+                        <img src="@site.LogoUrl" alt="@site.SiteName" height="32" />
+                    }
+                    <span>@site.SiteName</span>
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                        aria-expanded="false" aria-label="Abrir menú">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" href="/">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" href="/productos">Productos</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/blog">Blog</a>
+                        </li>
+                        @foreach (var category in categories.Take(6))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/categoria/@category.Slug">@category.Name</a>
+                            </li>
+                        }
                     </ul>
+                    @if (isAdmin)
+                    {
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/admin/sitio">Sitio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/admin/categorias">Categorías</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/admin/marcas">Marcas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/admin/banners">Banners</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/admin/paginas">Páginas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/admin/blog">Notas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Catalog" asp-action="Create">Cargar producto</a>
+                            </li>
+                            <li class="nav-item">
+                                <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-link nav-link">Salir</button>
+                                </form>
+                            </li>
+                        </ul>
+                    }
                 </div>
             </div>
         </nav>
@@ -38,8 +147,26 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - SEOStore.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container d-flex flex-wrap justify-content-between gap-2 py-3">
+            <span>&copy; @DateTime.UtcNow.Year - @site.SiteName</span>
+            <span class="d-flex gap-3 flex-wrap">
+                @foreach (var sitePage in pages)
+                {
+                    <a href="/pagina/@sitePage.Slug">@sitePage.Title</a>
+                }
+                @if (!string.IsNullOrWhiteSpace(site.WhatsAppDigits))
+                {
+                    <a href="https://wa.me/@site.WhatsAppDigits" rel="noopener noreferrer">WhatsApp</a>
+                }
+                @if (!string.IsNullOrWhiteSpace(site.Instagram))
+                {
+                    <a href="@site.Instagram" rel="noopener noreferrer">Instagram</a>
+                }
+                @if (!string.IsNullOrWhiteSpace(site.Facebook))
+                {
+                    <a href="@site.Facebook" rel="noopener noreferrer">Facebook</a>
+                }
+            </span>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

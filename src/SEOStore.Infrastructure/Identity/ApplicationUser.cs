@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using SEOStore.Domain.Entities.Users;
 
 namespace SEOStore.Infrastructure.Identity;
 

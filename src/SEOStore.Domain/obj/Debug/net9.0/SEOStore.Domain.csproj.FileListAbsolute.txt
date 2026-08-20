@@ -21,3 +21,12 @@ C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Domain\obj\Debug\net9.0\SEOStor
 C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Domain\obj\Debug\net9.0\refint\SEOStore.Domain.dll
 C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Domain\obj\Debug\net9.0\SEOStore.Domain.pdb
 C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Domain\obj\Debug\net9.0\ref\SEOStore.Domain.dll
+C:\Users\fer_f\Desktop\wow\SEOStore\.verify-build\SEOStore.Domain.deps.json
+C:\Users\fer_f\Desktop\wow\SEOStore\.verify-build\SEOStore.Domain.dll
+C:\Users\fer_f\Desktop\wow\SEOStore\.verify-build\SEOStore.Domain.pdb
+c:\Users\fer_f\Desktop\wow\SEOStore\artifacts\buildcheck\SEOStore.Domain.deps.json
+c:\Users\fer_f\Desktop\wow\SEOStore\artifacts\buildcheck\SEOStore.Domain.dll
+c:\Users\fer_f\Desktop\wow\SEOStore\artifacts\buildcheck\SEOStore.Domain.pdb
+c:\Users\fer_f\Desktop\wow\SEOStore\.build-check\SEOStore.Domain.deps.json
+c:\Users\fer_f\Desktop\wow\SEOStore\.build-check\SEOStore.Domain.dll
+c:\Users\fer_f\Desktop\wow\SEOStore\.build-check\SEOStore.Domain.pdb

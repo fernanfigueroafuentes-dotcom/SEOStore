@@ -17,4 +17,6 @@ public class Setting : BaseEntity
     public string SecondaryColor { get; set; } = "#FFFFFF";
     public string GoogleAnalytics { get; set; } = string.Empty;
     public string GoogleTagManager { get; set; } = string.Empty;
+
+    public SiteMode SiteMode { get; set; } = SiteMode.Hybrid;
 }

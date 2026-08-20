@@ -25,4 +25,18 @@ public class CreateProductDto
     public int CategoryId { get; set; }
 
     public int? BrandId { get; set; }
+
+    public int? Stock { get; set; }
+
+    public string? MetaTitle { get; set; }
+
+    public string? MetaDescription { get; set; }
+
+    public string? OgTitle { get; set; }
+
+    public string? OgDescription { get; set; }
+
+    public bool Index { get; set; } = true;
+
+    public bool Follow { get; set; } = true;
 }

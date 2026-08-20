@@ -27,4 +27,6 @@ public class UpdateProductDto
     public int CategoryId { get; set; }
 
     public int? BrandId { get; set; }
+
+    public int? Stock { get; set; }
 }

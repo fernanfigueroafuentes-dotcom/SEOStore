@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SEOStore.Application.Features.Products.DTOs;
 using SEOStore.Application.Interfaces.Services;
+using SEOStore.Web.Security;
 
 namespace SEOStore.Web.Controllers;
 
@@ -54,6 +55,7 @@ public class ProductImageController : ControllerBase
         }
     }
 
+    [AdminApi]
     [HttpPost]
     public async Task<IActionResult> Create(int productId, [FromBody] CreateProductImageDto dto, CancellationToken cancellationToken)
     {
@@ -80,6 +82,7 @@ public class ProductImageController : ControllerBase
         }
     }
 
+    [AdminApi]
     [HttpPost("upload")]
     public async Task<IActionResult> Upload(int productId, IFormFile file, [FromForm] string? alt = null, [FromForm] bool isPrimary = false, [FromForm] int displayOrder = 0, CancellationToken cancellationToken = default)
     {
@@ -90,7 +93,12 @@ public class ProductImageController : ControllerBase
 
             var folder = $"products/{productId}";
             using var stream = file.OpenReadStream();
-            var uploadResult = await _imageStorageService.UploadAsync(stream, file.FileName, folder, cancellationToken);
+            var uploadResult = await _imageStorageService.UploadAsync(
+                stream,
+                file.FileName,
+                folder,
+                assetName: null,
+                cancellationToken);
 
             var dto = new CreateProductImageDto
             {
@@ -119,6 +127,7 @@ public class ProductImageController : ControllerBase
         }
     }
 
+    [AdminApi]
     [HttpPut("{id:int}")]
     public async Task<IActionResult> Update(int productId, int id, [FromBody] UpdateProductImageDto dto, CancellationToken cancellationToken)
     {
@@ -148,6 +157,7 @@ public class ProductImageController : ControllerBase
         }
     }
 
+    [AdminApi]
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int productId, int id, CancellationToken cancellationToken)
     {
@@ -170,6 +180,7 @@ public class ProductImageController : ControllerBase
         }
     }
 
+    [AdminApi]
     [HttpPatch("{id:int}/primary")]
     public async Task<IActionResult> SetPrimary(int productId, int id, CancellationToken cancellationToken)
     {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj": {}
+    "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj": {
+    "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj",
+        "projectUniqueName": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj",
         "projectName": "SEOStore.Application",
-        "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj",
+        "projectPath": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj",
         "packagesPath": "C:\\Users\\fer_f\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\obj\\",
+        "outputPath": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj": {
-                "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj"
+              "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj": {
+                "projectPath": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj"
               }
             }
           }
@@ -54,6 +54,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[9.0.10, )"
@@ -79,14 +83,14 @@
         }
       }
     },
-    "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj": {
+    "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj",
         "projectName": "SEOStore.Domain",
-        "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj",
+        "projectPath": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj",
         "packagesPath": "C:\\Users\\fer_f\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\obj\\",
+        "outputPath": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -144,14 +148,14 @@
         }
       }
     },
-    "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj": {
+    "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj",
         "projectName": "SEOStore.Infrastructure",
-        "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\fer_f\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -172,11 +176,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj": {
-                "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj"
+              "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj": {
+                "projectPath": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj"
               },
-              "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj": {
-                "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj"
+              "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj": {
+                "projectPath": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj"
               }
             }
           }

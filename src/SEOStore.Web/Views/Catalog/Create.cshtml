@@ -1,0 +1,171 @@
+@model SEOStore.Web.Models.Catalog.CreateProductForm
+@{
+    ViewData["Title"] = "Nuevo producto";
+}
+
+<h1 class="h3 mb-3">Nuevo producto</h1>
+<p class="text-muted">Completa los datos básicos y agrega fotos. El resto lo afinamos después.</p>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data" class="card p-4">
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label asp-for="SKU" class="form-label"></label>
+            <input asp-for="SKU" class="form-control" placeholder="Se genera solo si lo dejas vacío" />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label asp-for="Price" class="form-label"></label>
+            <input asp-for="Price" class="form-control" />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ShortDescription" class="form-label"></label>
+        <input asp-for="ShortDescription" class="form-control" />
+    </div>
+
+    <div class="mb-4">
+        <label asp-for="Description" class="form-label"></label>
+        <div id="description-editor" class="product-editor"></div>
+        <textarea asp-for="Description" class="d-none" rows="8"></textarea>
+        <div class="form-text">Puedes usar títulos, negritas, listas y enlaces, como en una ficha de tienda.</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label asp-for="CategoryId" class="form-label"></label>
+            <select asp-for="CategoryId" asp-items="Model.Categories" class="form-select">
+                <option value="">Crear o usar General</option>
+            </select>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label asp-for="NewCategoryName" class="form-label"></label>
+            <input asp-for="NewCategoryName" class="form-control" placeholder="Ej. Calzado" />
+            <div class="form-text">Si no eliges categoría, se crea esta o "General". También podés editarlas en <a href="/admin/categorias">Categorías</a>.</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label asp-for="BrandId" class="form-label"></label>
+            <select asp-for="BrandId" asp-items="Model.Brands" class="form-select">
+                <option value="">Sin marca</option>
+            </select>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label asp-for="NewBrandName" class="form-label"></label>
+            <input asp-for="NewBrandName" class="form-control" placeholder="Ej. Nike" />
+            <div class="form-text">Opcional. También en <a href="/admin/marcas">Marcas</a>.</div>
+        </div>
+    </div>
+    <div class="row" id="new-category-seo">
+        <div class="col-md-6 mb-3">
+            <label asp-for="NewCategoryMetaTitle" class="form-label"></label>
+            <input asp-for="NewCategoryMetaTitle" class="form-control" maxlength="70" placeholder="Se usa el nombre si lo dejás vacío" />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label asp-for="NewCategoryMetaDescription" class="form-label"></label>
+            <input asp-for="NewCategoryMetaDescription" class="form-control" maxlength="160" />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="WhatsAppMessage" class="form-label"></label>
+        <input asp-for="WhatsAppMessage" class="form-control" placeholder="Hola, quiero consultar este producto" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Photos" class="form-label"></label>
+        <input asp-for="Photos" class="form-control" type="file" accept=".jpg,.jpeg,.png,.webp,.gif,image/*" multiple name="Photos" />
+        <span asp-validation-for="Photos" class="text-danger"></span>
+        <div class="form-text">La primera foto queda como principal. En el recuadro puedes centrarla y usar − / + para el zoom. Arrastra para moverla.</div>
+        <div id="photo-framers"></div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="PhotoAlt" class="form-label"></label>
+        <input asp-for="PhotoAlt" class="form-control" placeholder="Se usa el nombre del producto si lo dejas vacío" />
+    </div>
+
+    <h2 class="h5 mt-4">SEO</h2>
+    <p class="text-muted small">Si lo dejas vacío, se usa el nombre y la descripción corta.</p>
+    <div class="mb-3">
+        <label asp-for="MetaTitle" class="form-label"></label>
+        <input asp-for="MetaTitle" class="form-control" maxlength="70" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="MetaDescription" class="form-label"></label>
+        <textarea asp-for="MetaDescription" class="form-control" rows="2" maxlength="160"></textarea>
+    </div>
+    <div class="form-check mb-2">
+        <input asp-for="Index" class="form-check-input" />
+        <label asp-for="Index" class="form-check-label"></label>
+    </div>
+    <div class="form-check mb-3">
+        <input asp-for="Follow" class="form-check-input" />
+        <label asp-for="Follow" class="form-check-label"></label>
+    </div>
+
+    <div class="form-check mb-2">
+        <input asp-for="ShowPrice" class="form-check-input" />
+        <label asp-for="ShowPrice" class="form-check-label"></label>
+    </div>
+    <div class="form-check mb-2">
+        <input asp-for="Featured" class="form-check-input" />
+        <label asp-for="Featured" class="form-check-label"></label>
+    </div>
+    <div class="form-check mb-4">
+        <input asp-for="Published" class="form-check-input" />
+        <label asp-for="Published" class="form-check-label"></label>
+    </div>
+
+    <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a class="btn btn-outline-secondary" asp-action="Index">Cancelar</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+    <script>
+        (function () {
+            const textarea = document.getElementById('Description');
+            const editorHost = document.getElementById('description-editor');
+            if (!textarea || !editorHost || typeof Quill === 'undefined') {
+                return;
+            }
+
+            const quill = new Quill(editorHost, {
+                theme: 'snow',
+                placeholder: 'Describe el producto: materiales, medidas, calce, cuidados y detalles de la prenda...',
+                modules: {
+                    toolbar: [
+                        [{ header: [2, 3, false] }],
+                        ['bold', 'italic', 'underline'],
+                        [{ list: 'ordered' }, { list: 'bullet' }],
+                        ['link'],
+                        ['clean']
+                    ]
+                }
+            });
+
+            if (textarea.value) {
+                quill.clipboard.dangerouslyPasteHTML(textarea.value);
+            }
+
+            const form = editorHost.closest('form');
+            form?.addEventListener('submit', function () {
+                textarea.value = quill.root.innerHTML === '<p><br></p>' ? '' : quill.root.innerHTML;
+            });
+        })();
+    </script>
+    <script src="~/js/photo-framer.js" asp-append-version="true"></script>
+}

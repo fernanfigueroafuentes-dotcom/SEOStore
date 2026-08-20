@@ -48,6 +48,18 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
         builder.Property(x => x.Notes)
             .HasColumnType("text");
 
+        builder.Property(x => x.ShippingStreet)
+            .HasMaxLength(200);
+
+        builder.Property(x => x.ShippingCity)
+            .HasMaxLength(100);
+
+        builder.Property(x => x.ShippingRegion)
+            .HasMaxLength(100);
+
+        builder.Property(x => x.ShippingPostalCode)
+            .HasMaxLength(20);
+
 
         builder.HasMany(x => x.Items)
             .WithOne(x => x.Order)

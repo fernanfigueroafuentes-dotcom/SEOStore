@@ -19,4 +19,8 @@ public class UpdateCategoryDto
     public string? MetaTitle { get; set; }
 
     public string? MetaDescription { get; set; }
+
+    public bool Index { get; set; } = true;
+
+    public bool Follow { get; set; } = true;
 }

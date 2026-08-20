@@ -10,6 +10,10 @@ public interface ICategoryRepository
 
     Task<Category?> GetBySlugAsync(string slug, CancellationToken cancellationToken = default);
 
+    Task<List<Category>> GetPublishedAsync(CancellationToken cancellationToken = default);
+
+    Task<Category?> GetPublishedBySlugAsync(string slug, CancellationToken cancellationToken = default);
+
     Task AddAsync(Category category, CancellationToken cancellationToken = default);
 
     Task UpdateAsync(Category category, CancellationToken cancellationToken = default);

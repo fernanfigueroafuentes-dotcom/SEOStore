@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SEOStore.Application.Features.Carts.DTOs;
@@ -7,7 +8,7 @@ using SEOStore.Application.Interfaces.Services;
 namespace SEOStore.Web.Controllers;
 
 [ApiController]
-[Authorize]
+[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 [Route("api/cart")]
 public class CartController : ControllerBase
 {

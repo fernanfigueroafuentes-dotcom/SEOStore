@@ -16,5 +16,5 @@ public interface IBrandRepository
 
     Task DeleteAsync(Brand brand, CancellationToken cancellationToken = default);
 
-    Task<bool> ExistsBySlugAsync(string slug, CancellationToken cancellationToken = default);
+    Task<bool> ExistsBySlugAsync(string slug, int? excludeId = null, CancellationToken cancellationToken = default);
 }

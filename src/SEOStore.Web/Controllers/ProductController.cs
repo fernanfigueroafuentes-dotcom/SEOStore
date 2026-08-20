@@ -1,6 +1,7 @@
-using SEOStore.Application.Features.Products.DTOs;
 using Microsoft.AspNetCore.Mvc;
+using SEOStore.Application.Features.Products.DTOs;
 using SEOStore.Application.Interfaces.Services;
+using SEOStore.Web.Security;
 
 
 namespace SEOStore.Web.Controllers;
@@ -44,6 +45,7 @@ public class ProductsController : ControllerBase
         }
     }
 
+    [AdminApi]
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateProductDto dto, CancellationToken cancellationToken)
     {
@@ -58,6 +60,7 @@ public class ProductsController : ControllerBase
         }
     }
 
+    [AdminApi]
     [HttpPut("{id:int}")]
     public async Task<IActionResult> Update(int id, [FromBody] UpdateProductDto dto, CancellationToken cancellationToken)
     {
@@ -79,6 +82,7 @@ public class ProductsController : ControllerBase
         }
     }
 
+    [AdminApi]
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
     {

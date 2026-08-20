@@ -20,6 +20,10 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
             .IsRequired()
             .HasMaxLength(150);
 
+        builder.HasIndex(x => x.Slug)
+            .IsUnique()
+            .HasFilter("\"IsDeleted\" = FALSE");
+
         builder.HasMany(x => x.Products)
             .WithOne(x => x.Category)
             .HasForeignKey(x => x.CategoryId)

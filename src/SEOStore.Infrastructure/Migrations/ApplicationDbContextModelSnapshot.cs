@@ -263,6 +263,10 @@ namespace SEOStore.Infrastructure.Migrations
 
                     b.HasIndex("ParentCategoryId");
 
+                    b.HasIndex("Slug")
+                        .IsUnique()
+                        .HasFilter("\"IsDeleted\" = FALSE");
+
                     b.ToTable("Categories", (string)null);
                 });
 
@@ -349,6 +353,9 @@ namespace SEOStore.Infrastructure.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("character varying(200)");
 
+                    b.Property<int?>("Stock")
+                        .HasColumnType("integer");
+
                     b.Property<string>("StructuredData")
                         .HasColumnType("text");
 
@@ -370,10 +377,12 @@ namespace SEOStore.Infrastructure.Migrations
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("SKU")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("\"IsDeleted\" = FALSE");
 
                     b.HasIndex("Slug")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("\"IsDeleted\" = FALSE");
 
                     b.ToTable("Products", (string)null);
                 });
@@ -523,9 +532,25 @@ namespace SEOStore.Infrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
+                    b.Property<string>("ShippingCity")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
                     b.Property<decimal>("ShippingCost")
                         .HasPrecision(10, 2)
                         .HasColumnType("numeric(10,2)");
+
+                    b.Property<string>("ShippingPostalCode")
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.Property<string>("ShippingRegion")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("ShippingStreet")
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -722,6 +747,13 @@ namespace SEOStore.Infrastructure.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("character varying(20)")
                         .HasDefaultValue("#FFFFFF");
+
+                    b.Property<string>("SiteMode")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)")
+                        .HasDefaultValue("Hybrid");
 
                     b.Property<string>("SiteName")
                         .IsRequired()
@@ -1017,7 +1049,43 @@ namespace SEOStore.Infrastructure.Migrations
                     b.ToTable("MercadoLibreAuths", (string)null);
                 });
 
-            modelBuilder.Entity("SEOStore.Infrastructure.Identity.Address", b =>
+            modelBuilder.Entity("SEOStore.Domain.Entities.Seo.SlugRedirect", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("NewPath")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("character varying(300)");
+
+                    b.Property<string>("OldPath")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("character varying(300)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OldPath")
+                        .IsUnique()
+                        .HasFilter("\"IsDeleted\" = FALSE");
+
+                    b.ToTable("SlugRedirects", (string)null);
+                });
+
+            modelBuilder.Entity("SEOStore.Domain.Entities.Users.Address", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1320,15 +1388,13 @@ namespace SEOStore.Infrastructure.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("SEOStore.Infrastructure.Identity.Address", b =>
+            modelBuilder.Entity("SEOStore.Domain.Entities.Users.Address", b =>
                 {
-                    b.HasOne("SEOStore.Infrastructure.Identity.ApplicationUser", "User")
+                    b.HasOne("SEOStore.Infrastructure.Identity.ApplicationUser", null)
                         .WithMany("Addresses")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SEOStore.Infrastructure.Identity.RefreshToken", b =>

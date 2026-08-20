@@ -1,0 +1,99 @@
+@using SEOStore.Application.Features.Products.DTOs
+@using SEOStore.Application.Features.Settings.DTOs
+@using SEOStore.Web.Html
+@model ProductDto
+@{
+    var images = ViewBag.Images as IEnumerable<ProductImageDto> ?? [];
+    var site = ViewData["Site"] as SiteSettingsDto ?? new SiteSettingsDto();
+    var gallery = images.ToList();
+    var whatsappText = Uri.EscapeDataString(string.IsNullOrWhiteSpace(Model.WhatsAppMessage)
+        ? $"Hola, quiero consultar {Model.Name}"
+        : Model.WhatsAppMessage);
+}
+
+@if (TempData["StatusMessage"] is string status)
+{
+    <div class="alert alert-success">@status</div>
+}
+
+<nav class="mb-3 small" aria-label="Migas de pan">
+    <a href="/">Inicio</a>
+    <span> / </span>
+    <a href="/productos">Productos</a>
+    @if (!string.IsNullOrWhiteSpace(Model.CategoryName) && !string.IsNullOrWhiteSpace(Model.CategorySlug))
+    {
+        <span> / </span>
+        <a href="/categoria/@Model.CategorySlug">@Model.CategoryName</a>
+    }
+    <span> / </span>
+    <span>@Model.Name</span>
+</nav>
+
+<article class="product-page">
+    <div class="row g-4 g-lg-5">
+        <div class="col-lg-6">
+            @if (gallery.Count > 0)
+            {
+                <img class="img-fluid rounded product-hero"
+                     src="@ProductImageUrl.Hero(gallery[0].Url)"
+                     alt="@(gallery[0].Alt ?? Model.Name)"
+                     width="@ProductImageUrl.HeroWidth"
+                     height="@ProductImageUrl.HeroHeight" />
+                @if (gallery.Count > 1)
+                {
+                    <div class="row g-2 mt-2">
+                        @foreach (var image in gallery.Skip(1))
+                        {
+                            <div class="col-4">
+                                <img class="img-fluid rounded border catalog-detail-photo"
+                                     src="@ProductImageUrl.Thumb(image.Url)"
+                                     alt="@(image.Alt ?? Model.Name)"
+                                     width="@ProductImageUrl.ThumbWidth"
+                                     height="@ProductImageUrl.ThumbHeight"
+                                     loading="lazy" />
+                            </div>
+                        }
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="catalog-thumb catalog-thumb-empty rounded">Sin fotos</div>
+            }
+        </div>
+        <div class="col-lg-6">
+            <p class="text-uppercase text-muted small mb-2">SKU @Model.SKU</p>
+            <h1 class="product-title">@Model.Name</h1>
+            @if (!string.IsNullOrWhiteSpace(Model.BrandName))
+            {
+                <p class="text-muted mb-2">@Model.BrandName</p>
+            }
+            @if (Model.ShowPrice)
+            {
+                <p class="product-price">@Model.Price.ToString("C")</p>
+            }
+            else
+            {
+                <p class="text-muted">Precio a consultar</p>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.ShortDescription))
+            {
+                <p class="product-lead">@Model.ShortDescription</p>
+            }
+            @if (!string.IsNullOrWhiteSpace(site.WhatsAppDigits))
+            {
+                <a class="btn btn-primary mt-2" href="https://wa.me/@site.WhatsAppDigits?text=@whatsappText" rel="noopener noreferrer">Consultar por WhatsApp</a>
+            }
+        </div>
+    </div>
+
+    @if (!string.IsNullOrWhiteSpace(Model.Description))
+    {
+        <section class="product-description">
+            <h2>Descripción</h2>
+            <div class="product-description-body">
+                @ProductDescriptionHtml.ToHtml(Model.Description)
+            </div>
+        </section>
+    }
+</article>

@@ -5,6 +5,8 @@ using SEOStore.Domain.Entities.Commerce;
 using SEOStore.Domain.Entities.Configuration;
 using SEOStore.Domain.Entities.Content;
 using SEOStore.Domain.Entities.Integrations;
+using SEOStore.Domain.Entities.Seo;
+using SEOStore.Domain.Entities.Users;
 using SEOStore.Infrastructure.Identity;
 
 namespace SEOStore.Infrastructure.Persistence;
@@ -36,6 +38,9 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 
     // Configuration
     public DbSet<Setting> Settings => Set<Setting>();
+
+    // SEO
+    public DbSet<SlugRedirect> SlugRedirects => Set<SlugRedirect>();
 
     // Integrations
     public DbSet<MercadoLibreAuth> MercadoLibreAuths => Set<MercadoLibreAuth>();

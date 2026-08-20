@@ -1849,6 +1849,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.10",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.10",
           "SEOStore.Domain": "1.0.0"
         },
@@ -6044,11 +6045,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj",
       "projectName": "SEOStore.Infrastructure",
-      "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj",
+      "projectPath": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Infrastructure\\SEOStore.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\fer_f\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6069,11 +6070,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj": {
-              "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj"
+            "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj": {
+              "projectPath": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Application\\SEOStore.Application.csproj"
             },
-            "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj": {
-              "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj"
+            "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj": {
+              "projectPath": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Domain\\SEOStore.Domain.csproj"
             }
           }
         }

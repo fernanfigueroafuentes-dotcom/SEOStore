@@ -10,6 +10,10 @@ public interface ICategoryService
 
     Task<CategoryDto?> GetBySlugAsync(string slug, CancellationToken cancellationToken = default);
 
+    Task<IEnumerable<CategoryDto>> GetPublishedAsync(CancellationToken cancellationToken = default);
+
+    Task<CategoryDto?> GetPublishedBySlugAsync(string slug, CancellationToken cancellationToken = default);
+
     Task<CategoryDto> CreateAsync(CreateCategoryDto dto, CancellationToken cancellationToken = default);
 
     Task<CategoryDto> UpdateAsync(UpdateCategoryDto dto, CancellationToken cancellationToken = default);

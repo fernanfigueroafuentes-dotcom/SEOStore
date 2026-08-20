@@ -32,4 +32,13 @@ Desktop.ini
 
 # Logs
 *.log
+
+# Secrets
+.env
+.env.local
+!.env.example
+
+# Local product photo uploads
+src/SEOStore.Web/wwwroot/uploads/**
+!src/SEOStore.Web/wwwroot/uploads/.gitkeep
     

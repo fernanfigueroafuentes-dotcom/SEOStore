@@ -1,0 +1,43 @@
+@model IEnumerable<SEOStore.Application.Features.Content.DTOs.PageDto>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Páginas</h1>
+    <a class="btn btn-primary" asp-action="Create">Nueva página</a>
+</div>
+
+@if (TempData["StatusMessage"] is string status)
+{
+    <div class="alert alert-success">@status</div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Slug</th>
+            <th>Estado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var sitePage in Model)
+    {
+        <tr>
+            <td>@sitePage.Title</td>
+            <td><code>/pagina/@sitePage.Slug</code></td>
+            <td>@(sitePage.Published ? "Publicada" : "Borrador")</td>
+            <td class="text-end">
+                <a class="btn btn-sm btn-outline-secondary" asp-action="Edit" asp-route-id="@sitePage.Id">Editar</a>
+                @if (sitePage.Published)
+                {
+                    <a class="btn btn-sm btn-outline-secondary" href="/pagina/@sitePage.Slug">Ver</a>
+                }
+                <form action="/admin/paginas/@sitePage.Id/eliminar" method="post" class="d-inline">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('¿Eliminar esta página?')">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

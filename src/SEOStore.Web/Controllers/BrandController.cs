@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SEOStore.Application.Features.Brands.DTOs;
 using SEOStore.Application.Interfaces.Services;
+using SEOStore.Web.Security;
 
 namespace SEOStore.Web.Controllers;
 
@@ -43,6 +44,7 @@ public class BrandsController : ControllerBase
         }
     }
 
+    [AdminApi]
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateBrandDto dto, CancellationToken cancellationToken)
     {
@@ -57,6 +59,7 @@ public class BrandsController : ControllerBase
         }
     }
 
+    [AdminApi]
     [HttpPut("{id:int}")]
     public async Task<IActionResult> Update(int id, [FromBody] UpdateBrandDto dto, CancellationToken cancellationToken)
     {
@@ -78,6 +81,7 @@ public class BrandsController : ControllerBase
         }
     }
 
+    [AdminApi]
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
     {

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SEOStore.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51532d8d8eee04da213e93740dcc6883555d7fd6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a0ad6b6cbce104928a9b2c6a2407af763a3a40d")]
 [assembly: System.Reflection.AssemblyProductAttribute("SEOStore.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SEOStore.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -17,89 +17,181 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SEOStore.Web
 build_property.RootNamespace = SEOStore.Web
-build_property.ProjectDir = C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Web\
+build_property.ProjectDir = C:\Users\fer_f\Desktop\SEOStore\src\SEOStore.Web\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\fer_f\Desktop\wow\SEOStore\src\SEOStore.Web
+build_property.MSBuildProjectDirectory = C:\Users\fer_f\Desktop\SEOStore\src\SEOStore.Web
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/Brand/Create.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/BannersAdmin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFubmVyc0FkbWluXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/BannersAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFubmVyc0FkbWluXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/BlogAdmin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ0FkbWluXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/BlogAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ0FkbWluXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/BrandsAdmin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRzQWRtaW5cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/BrandsAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRzQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Brand/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/Brand/Delete.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Brand/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/Brand/Edit.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Brand/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/Brand/Index.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Brand/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/Category/Create.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Catalog/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Catalog/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Catalog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/CategoriesAdmin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc0FkbWluXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/CategoriesAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc0FkbWluXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Category/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/Category/Delete.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Category/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/Category/Edit.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Category/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/Category/Index.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/Home/Index.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Content/Blog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGVudFxCbG9nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Content/Page.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGVudFxQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Content/Post.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGVudFxQb3N0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/Home/Privacy.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/Product/Create.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/PagesAdmin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZXNBZG1pblxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/PagesAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZXNBZG1pblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Product/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/Product/Delete.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Product/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/Product/Edit.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Product/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/Product/Index.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/Shared/Error.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Settings/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2V0dGluZ3NcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Shared/_ProductCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Qcm9kdWN0Q2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Shared/_QuillEditor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9RdWlsbEVkaXRvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/_ViewImports.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Store/Category.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVcQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Store/Product.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVcUHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Store/Products.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVcUHJvZHVjdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/_ViewStart.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fer_f/Desktop/wow/SEOStore/src/SEOStore.Web/Views/Shared/_Layout.cshtml]
+[C:/Users/fer_f/Desktop/SEOStore/src/SEOStore.Web/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-51hhc5n5lh

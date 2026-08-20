@@ -1,0 +1,29 @@
+@model SEOStore.Application.Features.Products.DTOs.ProductDto
+<a class="text-decoration-none text-dark" href="/producto/@Model.Slug">
+    <div class="card h-100 catalog-card">
+        @if (!string.IsNullOrWhiteSpace(Model.ThumbnailUrl))
+        {
+            <img class="card-img-top catalog-thumb"
+                 src="@ProductImageUrl.Card(Model.ThumbnailUrl)"
+                 alt="@Model.Name"
+                 width="@ProductImageUrl.CardWidth"
+                 height="@ProductImageUrl.CardHeight"
+                 loading="lazy" />
+        }
+        else
+        {
+            <div class="catalog-thumb catalog-thumb-empty">Sin foto</div>
+        }
+        <div class="card-body">
+            <h2 class="h5 mb-1">@Model.Name</h2>
+            @if (Model.ShowPrice)
+            {
+                <p class="mb-0">@Model.Price.ToString("C")</p>
+            }
+            else
+            {
+                <p class="mb-0 text-muted">Consultar</p>
+            }
+        </div>
+    </div>
+</a>

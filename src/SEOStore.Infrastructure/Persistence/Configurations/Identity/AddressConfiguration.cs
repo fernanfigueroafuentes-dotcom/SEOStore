@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using SEOStore.Domain.Entities.Users;
 using SEOStore.Infrastructure.Identity;
 
 namespace SEOStore.Infrastructure.Persistence.Configurations.Identity;
@@ -32,9 +33,9 @@ public class AddressConfiguration : IEntityTypeConfiguration<Address>
             .IsRequired()
             .HasMaxLength(20);
 
-        builder.HasOne(x => x.User)
-            .WithMany(x => x.Addresses)
-            .HasForeignKey(x => x.UserId)
+        builder.HasOne<ApplicationUser>()
+            .WithMany(user => user.Addresses)
+            .HasForeignKey(address => address.UserId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

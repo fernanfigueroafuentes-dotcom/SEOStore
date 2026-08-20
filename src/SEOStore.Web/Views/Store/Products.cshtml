@@ -1,0 +1,22 @@
+@model IEnumerable<SEOStore.Application.Features.Products.DTOs.ProductDto>
+@{
+    ViewData["Title"] = "Productos";
+}
+
+<h1 class="h3 mb-4">Productos</h1>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-light border">Todavía no hay productos publicados.</div>
+}
+else
+{
+    <div class="row g-3">
+        @foreach (var product in Model)
+        {
+            <div class="col-12 col-sm-6 col-lg-4">
+                <partial name="_ProductCard" model="product" />
+            </div>
+        }
+    </div>
+}

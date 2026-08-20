@@ -1,0 +1,70 @@
+@using SEOStore.Application.Features.Products.DTOs
+@using SEOStore.Web.Html
+@model ProductDto
+@{
+    ViewData["Title"] = Model.Name;
+    var images = ViewBag.Images as IEnumerable<ProductImageDto> ?? [];
+}
+
+@if (TempData["StatusMessage"] is string status)
+{
+    <div class="alert alert-success">@status</div>
+}
+
+<p class="mb-3">
+    <a asp-action="Index">&larr; Volver al catálogo</a>
+</p>
+
+<article class="product-page">
+    <div class="row g-4 g-lg-5">
+        <div class="col-lg-6">
+            @if (images.Any())
+            {
+                var gallery = images.ToList();
+                <img class="img-fluid rounded product-hero" src="@ProductImageUrl.Hero(gallery[0].Url)" alt="@(gallery[0].Alt ?? Model.Name)" />
+                @if (gallery.Count > 1)
+                {
+                    <div class="row g-2 mt-2">
+                        @foreach (var image in gallery.Skip(1))
+                        {
+                            <div class="col-4">
+                                <img class="img-fluid rounded border catalog-detail-photo" src="@ProductImageUrl.Thumb(image.Url)" alt="@(image.Alt ?? Model.Name)" />
+                            </div>
+                        }
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="catalog-thumb catalog-thumb-empty rounded">Sin fotos</div>
+            }
+        </div>
+        <div class="col-lg-6">
+            <p class="text-uppercase text-muted small mb-2">SKU @Model.SKU</p>
+            <h1 class="product-title">@Model.Name</h1>
+            @if (Model.ShowPrice)
+            {
+                <p class="product-price">@Model.Price.ToString("C")</p>
+            }
+            else
+            {
+                <p class="text-muted">Precio a consultar</p>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.ShortDescription))
+            {
+                <p class="product-lead">@Model.ShortDescription</p>
+            }
+            <a class="btn btn-primary mt-2" asp-action="Create">Cargar otro producto</a>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrWhiteSpace(Model.Description))
+    {
+        <section class="product-description">
+            <h2>Descripción</h2>
+            <div class="product-description-body">
+                @ProductDescriptionHtml.ToHtml(Model.Description)
+            </div>
+        </section>
+    }
+</article>

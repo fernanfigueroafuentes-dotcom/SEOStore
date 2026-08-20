@@ -36,6 +36,22 @@ public class CategoryRepository : ICategoryRepository
             .FirstOrDefaultAsync(c => c.Slug == slug && !c.IsDeleted, cancellationToken);
     }
 
+    public async Task<List<Category>> GetPublishedAsync(CancellationToken cancellationToken = default)
+    {
+        return await _context.Categories
+            .AsNoTracking()
+            .Where(c => !c.IsDeleted && c.Published)
+            .OrderBy(c => c.DisplayOrder)
+            .ThenBy(c => c.Name)
+            .ToListAsync(cancellationToken);
+    }
+
+    public async Task<Category?> GetPublishedBySlugAsync(string slug, CancellationToken cancellationToken = default)
+    {
+        return await _context.Categories
+            .FirstOrDefaultAsync(c => c.Slug == slug && !c.IsDeleted && c.Published, cancellationToken);
+    }
+
     public async Task AddAsync(Category category, CancellationToken cancellationToken = default)
     {
         await _context.Categories.AddAsync(category, cancellationToken);
@@ -51,6 +67,7 @@ public class CategoryRepository : ICategoryRepository
     public async Task DeleteAsync(Category category, CancellationToken cancellationToken = default)
     {
         category.IsDeleted = true;
+        category.SetSlug($"{category.Slug}-deleted-{category.Id}");
         category.UpdatedAt = DateTime.UtcNow;
         await UpdateAsync(category, cancellationToken);
     }

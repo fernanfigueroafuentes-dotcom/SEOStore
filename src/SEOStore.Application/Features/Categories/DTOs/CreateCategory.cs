@@ -12,7 +12,13 @@ public class CreateCategoryDto
 
     public int DisplayOrder { get; set; }
 
+    public bool Published { get; set; } = true;
+
     public string? MetaTitle { get; set; }
 
     public string? MetaDescription { get; set; }
+
+    public bool Index { get; set; } = true;
+
+    public bool Follow { get; set; } = true;
 }

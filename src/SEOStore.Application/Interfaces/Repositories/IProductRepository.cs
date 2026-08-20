@@ -10,6 +10,14 @@ public interface IProductRepository
 
     Task<Product?> GetBySlugAsync(string slug, CancellationToken cancellationToken = default);
 
+    Task<List<Product>> GetPublishedAsync(CancellationToken cancellationToken = default);
+
+    Task<Product?> GetPublishedBySlugAsync(string slug, CancellationToken cancellationToken = default);
+
+    Task<List<Product>> GetPublishedByCategoryAsync(int categoryId, CancellationToken cancellationToken = default);
+
+    Task<List<Product>> GetFeaturedPublishedAsync(int take, CancellationToken cancellationToken = default);
+
     Task AddAsync(Product product, CancellationToken cancellationToken = default);
 
     Task UpdateAsync(Product product, CancellationToken cancellationToken = default);

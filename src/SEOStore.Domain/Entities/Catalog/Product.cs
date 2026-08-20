@@ -16,6 +16,7 @@ public class Product : SeoEntity
     public bool Published { get; private set; } = true;
     public string? ThumbnailUrl { get; private set; }
     public string? WhatsAppMessage { get; private set; }
+    public int? Stock { get; private set; }
 
     public int CategoryId { get; private set; }
     public Category Category { get; private set; } = null!;
@@ -43,7 +44,8 @@ public class Product : SeoEntity
         string? thumbnailUrl,
         string? whatsappMessage,
         int categoryId,
-        int? brandId)
+        int? brandId,
+        int? stock = null)
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new InvalidOperationException("Product name is required.");
@@ -68,11 +70,21 @@ public class Product : SeoEntity
             WhatsAppMessage = whatsappMessage,
             CategoryId = categoryId,
             BrandId = brandId,
+            Stock = stock,
             CreatedAt = DateTime.UtcNow
         };
 
         product.Slug = GenerateSlug(name);
         return product;
+    }
+
+    public void SetSlug(string slug)
+    {
+        if (string.IsNullOrWhiteSpace(slug))
+            throw new InvalidOperationException("Slug is required.");
+
+        Slug = slug.Trim();
+        UpdatedAt = DateTime.UtcNow;
     }
 
     public void Rename(string name)
@@ -118,10 +130,75 @@ public class Product : SeoEntity
         UpdatedAt = DateTime.UtcNow;
     }
 
+    public void SetStock(int? stock)
+    {
+        if (stock is < 0)
+            throw new InvalidOperationException("Stock cannot be negative.");
+
+        Stock = stock;
+        UpdatedAt = DateTime.UtcNow;
+    }
+
+    public void DecrementStock(int quantity)
+    {
+        if (Stock is null)
+            return;
+
+        if (quantity <= 0)
+            throw new InvalidOperationException("Quantity must be greater than zero.");
+
+        if (Stock.Value < quantity)
+            throw new InvalidOperationException($"Insufficient stock for {Name}.");
+
+        Stock -= quantity;
+        UpdatedAt = DateTime.UtcNow;
+    }
+
+    public void RestoreStock(int quantity)
+    {
+        if (Stock is null || quantity <= 0)
+            return;
+
+        Stock += quantity;
+        UpdatedAt = DateTime.UtcNow;
+    }
+
     public void SetBrand(int? brandId)
     {
         BrandId = brandId;
         UpdatedAt = DateTime.UtcNow;
+    }
+
+    public void SetSeo(
+        string? metaTitle,
+        string? metaDescription,
+        string? ogTitle,
+        string? ogDescription,
+        string? ogImage,
+        string? canonicalUrl,
+        bool index,
+        bool follow)
+    {
+        MetaTitle = string.IsNullOrWhiteSpace(metaTitle) ? Name : metaTitle.Trim();
+        MetaDescription = string.IsNullOrWhiteSpace(metaDescription)
+            ? Truncate(ShortDescription, 160)
+            : metaDescription.Trim();
+        OgTitle = string.IsNullOrWhiteSpace(ogTitle) ? MetaTitle : ogTitle.Trim();
+        OgDescription = string.IsNullOrWhiteSpace(ogDescription) ? MetaDescription : ogDescription.Trim();
+        OgImage = string.IsNullOrWhiteSpace(ogImage) ? ThumbnailUrl : ogImage.Trim();
+        CanonicalUrl = string.IsNullOrWhiteSpace(canonicalUrl) ? null : canonicalUrl.Trim();
+        Index = index;
+        Follow = follow;
+        UpdatedAt = DateTime.UtcNow;
+    }
+
+    private static string? Truncate(string? value, int length)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+            return null;
+
+        var text = value.Trim();
+        return text.Length <= length ? text : text[..length].TrimEnd();
     }
 
     public static string GenerateSlug(string name)

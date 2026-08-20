@@ -1,0 +1,33 @@
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+<script>
+    (function () {
+        const textarea = document.getElementById('Content');
+        const editorHost = document.getElementById('content-editor');
+        if (!textarea || !editorHost || typeof Quill === 'undefined') {
+            return;
+        }
+
+        const quill = new Quill(editorHost, {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ header: [2, 3, false] }],
+                    ['bold', 'italic', 'underline'],
+                    [{ list: 'ordered' }, { list: 'bullet' }],
+                    ['link'],
+                    ['clean']
+                ]
+            }
+        });
+
+        if (textarea.value) {
+            quill.clipboard.dangerouslyPasteHTML(textarea.value);
+        }
+
+        const form = editorHost.closest('form');
+        form?.addEventListener('submit', function () {
+            textarea.value = quill.root.innerHTML === '<p><br></p>' ? '' : quill.root.innerHTML;
+        });
+    })();
+</script>

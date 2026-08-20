@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SEOStore.Application.Interfaces.Services;
 using SEOStore.Application.Features.Categories.DTOs;
+using SEOStore.Web.Security;
 
 namespace SEOStore.Web.Controllers;
 
@@ -44,6 +45,7 @@ public class CategoriesController : ControllerBase
         }
     }
 
+    [AdminApi]
     [HttpPost]
     public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryDto dto)
     {
@@ -52,12 +54,25 @@ public class CategoriesController : ControllerBase
             var category = await _categoryService.CreateAsync(dto);
             return CreatedAtAction(nameof(GetCategoryById), new { id = category.Id }, category);
         }
+        catch (ArgumentException)
+        {
+            return BadRequest(new { message = "The request is invalid." });
+        }
+        catch (KeyNotFoundException)
+        {
+            return NotFound(new { message = "The requested resource was not found." });
+        }
+        catch (InvalidOperationException)
+        {
+            return BadRequest(new { message = "The request cannot be completed." });
+        }
         catch (Exception)
         {
             return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
+    [AdminApi]
     [HttpPut("{id:int}")]
     public async Task<IActionResult> UpdateCategory(int id, [FromBody] UpdateCategoryDto dto)
     {
@@ -73,12 +88,21 @@ public class CategoriesController : ControllerBase
         {
             return NotFound(new { message = "The requested resource was not found." });
         }
+        catch (ArgumentException)
+        {
+            return BadRequest(new { message = "The request is invalid." });
+        }
+        catch (InvalidOperationException)
+        {
+            return BadRequest(new { message = "The request cannot be completed." });
+        }
         catch (Exception)
         {
             return StatusCode(500, new { message = "An unexpected error occurred." });
         }
     }
 
+    [AdminApi]
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> DeleteCategory(int id)
     {

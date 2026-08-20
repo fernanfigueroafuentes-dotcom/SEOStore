@@ -1,0 +1,14 @@
+@model SEOStore.Application.Features.Content.DTOs.PageDto
+
+<nav class="mb-3 small" aria-label="Migas de pan">
+    <a href="/">Inicio</a>
+    <span> / </span>
+    <span>@Model.Title</span>
+</nav>
+
+<article>
+    <h1 class="h3 mb-4">@Model.Title</h1>
+    <div class="product-description-body">
+        @ProductDescriptionHtml.ToHtml(Model.Content)
+    </div>
+</article>

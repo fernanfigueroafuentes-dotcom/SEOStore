@@ -1,0 +1,56 @@
+@model SEOStore.Web.Models.Admin.BannerForm
+@{
+    var isNew = Model.Id == 0;
+    ViewData["Title"] = isNew ? "Nuevo banner" : "Editar banner";
+}
+
+<h1 class="h3 mb-3">@(isNew ? "Nuevo banner" : "Editar banner")</h1>
+
+<form method="post" enctype="multipart/form-data" class="card p-4">
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Subtitle" class="form-label"></label>
+        <input asp-for="Subtitle" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Photo" class="form-label"></label>
+        <input asp-for="Photo" class="form-control" type="file" accept=".jpg,.jpeg,.png,.webp,.gif,image/*" />
+        <span asp-validation-for="Photo" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="ImageUrl" class="form-label"></label>
+        <input asp-for="ImageUrl" class="form-control" placeholder="Opcional si subís una foto" />
+        @if (!string.IsNullOrWhiteSpace(Model.ImageUrl))
+        {
+            <div class="mt-2">
+                <img src="@Model.ImageUrl" alt="@Model.Title" class="img-fluid rounded" style="max-height: 160px;" />
+            </div>
+        }
+    </div>
+    <div class="mb-3">
+        <label asp-for="Link" class="form-label"></label>
+        <input asp-for="Link" class="form-control" placeholder="/productos o https://..." />
+    </div>
+    <div class="mb-3">
+        <label asp-for="DisplayOrder" class="form-label"></label>
+        <input asp-for="DisplayOrder" class="form-control" />
+    </div>
+    <div class="form-check mb-4">
+        <input asp-for="Active" class="form-check-input" />
+        <label asp-for="Active" class="form-check-label"></label>
+    </div>
+    <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a class="btn btn-outline-secondary" asp-action="Index">Cancelar</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

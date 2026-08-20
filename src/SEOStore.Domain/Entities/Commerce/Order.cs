@@ -29,6 +29,14 @@ public class Order : BaseEntity
 
     public string? Notes { get; set; }
 
+    public string? ShippingStreet { get; set; }
+
+    public string? ShippingCity { get; set; }
+
+    public string? ShippingRegion { get; set; }
+
+    public string? ShippingPostalCode { get; set; }
+
     public ICollection<OrderItem> Items { get; set; } = new List<OrderItem>();
 
     public ICollection<Payment> Payments { get; set; } = new List<Payment>();

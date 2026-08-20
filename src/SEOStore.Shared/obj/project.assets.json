@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Shared\\SEOStore.Shared.csproj",
+      "projectUniqueName": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Shared\\SEOStore.Shared.csproj",
       "projectName": "SEOStore.Shared",
-      "projectPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Shared\\SEOStore.Shared.csproj",
+      "projectPath": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Shared\\SEOStore.Shared.csproj",
       "packagesPath": "C:\\Users\\fer_f\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fer_f\\Desktop\\wow\\SEOStore\\src\\SEOStore.Shared\\obj\\",
+      "outputPath": "C:\\Users\\fer_f\\Desktop\\SEOStore\\src\\SEOStore.Shared\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

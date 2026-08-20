@@ -1,5 +1,4 @@
 using SEOStore.Domain.Common;
-using System.Text.RegularExpressions;
 
 namespace SEOStore.Domain.Entities.Catalog;
 
@@ -52,6 +51,15 @@ public class Category : SeoEntity
         return category;
     }
 
+    public void SetSlug(string slug)
+    {
+        if (string.IsNullOrWhiteSpace(slug))
+            throw new InvalidOperationException("Slug is required.");
+
+        Slug = slug.Trim();
+        UpdatedAt = DateTime.UtcNow;
+    }
+
     public void Rename(string name)
     {
         if (string.IsNullOrWhiteSpace(name))
@@ -68,14 +76,20 @@ public class Category : SeoEntity
         int displayOrder,
         bool published,
         string? metaTitle,
-        string? metaDescription)
+        string? metaDescription,
+        bool index,
+        bool follow)
     {
         Description = description;
         ImageUrl = imageUrl;
         DisplayOrder = displayOrder;
         Published = published;
-        MetaTitle = metaTitle;
-        MetaDescription = metaDescription;
+        MetaTitle = string.IsNullOrWhiteSpace(metaTitle) ? Name : metaTitle.Trim();
+        MetaDescription = string.IsNullOrWhiteSpace(metaDescription) ? Truncate(Description, 160) : metaDescription.Trim();
+        OgTitle = MetaTitle;
+        OgDescription = MetaDescription;
+        Index = index;
+        Follow = follow;
         UpdatedAt = DateTime.UtcNow;
     }
 
@@ -113,6 +127,15 @@ public class Category : SeoEntity
         slug = System.Text.RegularExpressions.Regex.Replace(slug, @"-+", "-").Trim('-');
 
         return string.IsNullOrWhiteSpace(slug) ? "category" : slug;
+    }
+
+    private static string? Truncate(string? value, int length)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+            return null;
+
+        var text = value.Trim();
+        return text.Length <= length ? text : text[..length].TrimEnd();
     }
 
     public void SetParentId(int? parentCategoryId)

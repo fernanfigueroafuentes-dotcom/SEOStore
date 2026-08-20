@@ -13,6 +13,14 @@ public static class DependencyInjection
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IProductImageService, ProductImageService>();
         services.AddScoped<ICartService, CartService>();
+        services.AddScoped<IOrderService, OrderService>();
+        services.AddScoped<IAddressService, AddressService>();
+        services.AddScoped<ISettingService, SettingService>();
+        services.AddScoped<IPageService, PageService>();
+        services.AddScoped<IBlogPostService, BlogPostService>();
+        services.AddScoped<IBannerService, BannerService>();
+        services.AddScoped<ISlugUniquenessService, SlugUniquenessService>();
+        services.AddScoped<ISlugRedirectService, SlugRedirectService>();
         return services;
     }
 }

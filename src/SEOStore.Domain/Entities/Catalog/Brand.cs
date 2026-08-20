@@ -32,6 +32,15 @@ public class Brand : BaseEntity
         return brand;
     }
 
+    public void SetSlug(string slug)
+    {
+        if (string.IsNullOrWhiteSpace(slug))
+            throw new InvalidOperationException("Slug is required.");
+
+        Slug = slug.Trim();
+        UpdatedAt = DateTime.UtcNow;
+    }
+
     public void Rename(string name)
     {
         if (string.IsNullOrWhiteSpace(name))

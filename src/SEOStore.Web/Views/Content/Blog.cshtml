@@ -1,0 +1,35 @@
+@model IEnumerable<SEOStore.Application.Features.Content.DTOs.BlogPostDto>
+
+<h1 class="h3 mb-4">Blog</h1>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-light border">Todavía no hay notas publicadas.</div>
+}
+else
+{
+    <div class="row g-4">
+        @foreach (var post in Model)
+        {
+            <div class="col-md-6">
+                <article class="border rounded p-3 h-100">
+                    <h2 class="h5"><a class="text-decoration-none" href="/blog/@post.Slug">@post.Title</a></h2>
+                    @if (!string.IsNullOrWhiteSpace(post.Summary))
+                    {
+                        <p class="text-muted mb-2">@post.Summary</p>
+                    }
+                    <p class="small mb-0">
+                        @if (post.PublishedAt is not null)
+                        {
+                            <span>@post.PublishedAt.Value.ToString("dd/MM/yyyy")</span>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(post.Author))
+                        {
+                            <span> · @post.Author</span>
+                        }
+                    </p>
+                </article>
+            </div>
+        }
+    </div>
+}

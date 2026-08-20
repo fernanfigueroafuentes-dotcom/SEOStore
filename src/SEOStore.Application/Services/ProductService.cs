@@ -1,3 +1,4 @@
+using SEOStore.Application.Common;
 using SEOStore.Application.Features.Products.DTOs;
 using SEOStore.Application.Interfaces.Repositories;
 using SEOStore.Application.Interfaces.Services;
@@ -8,10 +9,17 @@ namespace SEOStore.Application.Services;
 public class ProductService : IProductService
 {
     private readonly IProductRepository _productRepository;
+    private readonly ISlugUniquenessService _slugUniqueness;
+    private readonly ISlugRedirectService _slugRedirects;
 
-    public ProductService(IProductRepository productRepository)
+    public ProductService(
+        IProductRepository productRepository,
+        ISlugUniquenessService slugUniqueness,
+        ISlugRedirectService slugRedirects)
     {
         _productRepository = productRepository;
+        _slugUniqueness = slugUniqueness;
+        _slugRedirects = slugRedirects;
     }
 
     public async Task<IEnumerable<ProductDto>> GetAllAsync(CancellationToken cancellationToken = default)
@@ -32,6 +40,30 @@ public class ProductService : IProductService
         return product is null ? null : MapToDto(product);
     }
 
+    public async Task<IEnumerable<ProductDto>> GetPublishedAsync(CancellationToken cancellationToken = default)
+    {
+        var products = await _productRepository.GetPublishedAsync(cancellationToken);
+        return products.Select(MapToDto);
+    }
+
+    public async Task<ProductDto?> GetPublishedBySlugAsync(string slug, CancellationToken cancellationToken = default)
+    {
+        var product = await _productRepository.GetPublishedBySlugAsync(slug, cancellationToken);
+        return product is null ? null : MapToDto(product);
+    }
+
+    public async Task<IEnumerable<ProductDto>> GetPublishedByCategoryAsync(int categoryId, CancellationToken cancellationToken = default)
+    {
+        var products = await _productRepository.GetPublishedByCategoryAsync(categoryId, cancellationToken);
+        return products.Select(MapToDto);
+    }
+
+    public async Task<IEnumerable<ProductDto>> GetFeaturedPublishedAsync(int take = 8, CancellationToken cancellationToken = default)
+    {
+        var products = await _productRepository.GetFeaturedPublishedAsync(take, cancellationToken);
+        return products.Select(MapToDto);
+    }
+
     public async Task<ProductDto> CreateAsync(CreateProductDto dto, CancellationToken cancellationToken = default)
     {
         var product = Product.Create(
@@ -46,8 +78,25 @@ public class ProductService : IProductService
             dto.ThumbnailUrl,
             dto.WhatsAppMessage,
             dto.CategoryId,
-            dto.BrandId);
+            dto.BrandId,
+            dto.Stock);
 
+        product.SetSeo(
+            dto.MetaTitle,
+            dto.MetaDescription,
+            dto.OgTitle,
+            dto.OgDescription,
+            dto.ThumbnailUrl,
+            canonicalUrl: null,
+            dto.Index,
+            dto.Follow);
+
+        product.SetSlug(await _slugUniqueness.EnsureUniqueAsync(
+            product.Slug,
+            "product",
+            SlugKind.Product,
+            excludeId: null,
+            cancellationToken));
         await _productRepository.AddAsync(product, cancellationToken);
 
         return MapToDto(product);
@@ -58,6 +107,7 @@ public class ProductService : IProductService
         var product = await _productRepository.GetByIdAsync(dto.Id, cancellationToken)
             ?? throw new KeyNotFoundException($"Product with id {dto.Id} was not found.");
 
+        var oldSlug = product.Slug;
         if (!string.Equals(product.Name, dto.Name, StringComparison.Ordinal))
             product.Rename(dto.Name);
 
@@ -74,7 +124,23 @@ public class ProductService : IProductService
             dto.CategoryId,
             dto.BrandId);
 
+        if (dto.Stock.HasValue)
+            product.SetStock(dto.Stock);
+
+        if (!string.Equals(oldSlug, product.Slug, StringComparison.Ordinal))
+        {
+            product.SetSlug(await _slugUniqueness.EnsureUniqueAsync(
+                product.Slug,
+                "product",
+                SlugKind.Product,
+                product.Id,
+                cancellationToken));
+        }
+
         await _productRepository.UpdateAsync(product, cancellationToken);
+
+        if (!string.Equals(oldSlug, product.Slug, StringComparison.OrdinalIgnoreCase))
+            await _slugRedirects.RecordChangeAsync(SlugKind.Product, oldSlug, product.Slug, cancellationToken);
 
         return MapToDto(product);
     }
@@ -102,6 +168,18 @@ public class ProductService : IProductService
         ThumbnailUrl = product.ThumbnailUrl,
         WhatsAppMessage = product.WhatsAppMessage,
         CategoryId = product.CategoryId,
-        BrandId = product.BrandId
+        BrandId = product.BrandId,
+        BrandName = product.Brand?.Name,
+        Stock = product.Stock,
+        CategoryName = product.Category?.Name,
+        CategorySlug = product.Category?.Slug,
+        MetaTitle = product.MetaTitle,
+        MetaDescription = product.MetaDescription,
+        CanonicalUrl = product.CanonicalUrl,
+        OgTitle = product.OgTitle,
+        OgDescription = product.OgDescription,
+        OgImage = product.OgImage,
+        Index = product.Index,
+        Follow = product.Follow
     };
 }
